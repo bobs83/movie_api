@@ -13,6 +13,17 @@ http
     } else {
       filePath = "index.html";
     }
+    fs.appendFile(
+      "log.txt",
+      "URL: " + addr + "\nTimestamp: " + new Date() + "\n\n",
+      (err) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("Added to log.");
+        }
+      }
+    );
 
     fs.readFile(filePath, (err, data) => {
       if (err) {
