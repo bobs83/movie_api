@@ -15,7 +15,10 @@ http
     }
     fs.appendFile(
       "log.txt",
-      "URL: " + addr + "\nTimestamp: " + new Date() + "\n\n",
+      `URL:${addr} 
+      Timestamp:${new Date()}
+      
+      `,
       (err) => {
         if (err) {
           console.log(err);
