@@ -8,7 +8,48 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
   flags: "a",
 });
 
-let topMovies = [];
+let topMovies = [
+  {
+    title: "The Matrix (1999)",
+    author: "Lana and Lilly Wachowski)",
+  },
+  {
+    title: "The tourist",
+    author: "Jérôme Salle",
+  },
+  {
+    title: "Inception",
+    author: "Christopher Nolan",
+  },
+  {
+    title: "The others",
+    author: "Alejandro Amenábar",
+  },
+  {
+    title: "All about my mother",
+    author: "Pedro Almodóvar",
+  },
+  {
+    title: "Lionking",
+    author: "Rob Minkoff",
+  },
+  {
+    title: "The fith element",
+    author: "Luc Besson",
+  },
+  {
+    title: "Star Wars: Episode V",
+    author: "Irvin Kershner",
+  },
+  {
+    title: "Fucking Åmål",
+    author: "Lukas Moodysson",
+  },
+  {
+    title: "Amélie",
+    author: "Jean-Pierre Jeunet",
+  },
+];
 
 // USE requests
 
