@@ -10,49 +10,6 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
   flags: "a",
 });
 
-let topMovies = [
-  {
-    title: "The Matrix (1999)",
-    author: "Lana and Lilly Wachowski)",
-  },
-  {
-    title: "The tourist",
-    author: "Jérôme Salle",
-  },
-  {
-    title: "Inception",
-    author: "Christopher Nolan",
-  },
-  {
-    title: "The others",
-    author: "Alejandro Amenábar",
-  },
-  {
-    title: "All about my mother",
-    author: "Pedro Almodóvar",
-  },
-  {
-    title: "Lionking",
-    author: "Rob Minkoff",
-  },
-  {
-    title: "The fith element",
-    author: "Luc Besson",
-  },
-  {
-    title: "Star Wars: Episode V",
-    author: "Irvin Kershner",
-  },
-  {
-    title: "Fucking Åmål",
-    author: "Lukas Moodysson",
-  },
-  {
-    title: "Amélie",
-    author: "Jean-Pierre Jeunet",
-  },
-];
-
 let users = [
   {
     id: 1,
@@ -121,7 +78,7 @@ app.get("/movies/genre/:genreName", (req, res) => {
 });
 
 // Get data about director
-app.get("/movies/director/:directorName", (req, res) => {
+app.get("/movies/directors/:directorName", (req, res) => {
   const { directorName } = req.params;
   const director = movies.find(
     (movie) => movie.Director.Name === directorName
@@ -141,13 +98,13 @@ app.post("/users", (req, res) => {
     res.status(400).send(message);
   } else {
     newUser.id = uuid.v4();
-    students.push(newUser);
+    users.push(newUser);
     res.status(201).json(newUser);
   }
 });
 
 //PUT // UPDATE requests
-app.put("/users/:name", (req, res) => {
+app.put("/users/:id", (req, res) => {
   const { id } = req.params;
   const updatedUser = req.body;
   let user = users.find((user) => user.id == id);
@@ -160,14 +117,16 @@ app.put("/users/:name", (req, res) => {
 });
 
 // POST // CREATE //add a movie to a user's list of favorites
-app.post("/users/:id/moviesTitle", (req, res) => {
+app.post("/users/:id/:movieTitle", (req, res) => {
   const { id, movieTitle } = req.params;
+
   let user = users.find((user) => user.id == id);
+
   if (user) {
     user.favoriteMovies.push(movieTitle);
     res.status(200).json(`${movieTitle} has been added to user ${id}'s list`);
   } else {
-    res.status(400).send("No such user found");
+    res.status(400).send("no such movie found");
   }
 });
 
@@ -183,7 +142,7 @@ app.delete("/users/:id/:movieTitle", (req, res) => {
       .status(200)
       .json(`${movieTitle} has been removed from user ${id}'s list`);
   } else {
-    res.status(400).send("No such user found");
+    res.status(400).send("Movie cant be found in user's list");
   }
 });
 
