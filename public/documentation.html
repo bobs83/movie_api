@@ -51,11 +51,11 @@
           Example:
           <br />
           <code>
-            {"title": "Split", "description": "The film follows a man with
-            dissociative identity disorder who kidnaps...", "genre": { "name":
-            "thriller", "description": "This film is a ..." }, "director": {
-            "name": "M. Night Shyamalan", }, "imageURL":
-            "https://www.google.com...", "featured": false}
+            { "Title": "The French Dispatch", "Description": "A love letter to
+            journalists...", "Genre": { "Name": "Comedy", "Description": "Is a
+            genre of fiction that consists..." } "Director": { "Name": "Wes
+            Anderson", "Bio": "Wesley Wales Anderson was born...", "Birth": 1969
+            }, "ImageURL": "www.google.com", "Featured": false }
           </code>
           <br />
         </td>
@@ -73,88 +73,92 @@
           description properties. Example:
           <br />
           <code>
-            "Genre": { "Name": "Triller", "Description": "Is a genre of
-            fiction that ..." }
+            "Genre": { "Name": "Triller", "Description": "Is a genre of fiction
+            that ..." }
           </code>
         </td>
       </tr>
 
-          <!-- director  -->
-          <tr>
-            <td>Get data about a director by name</td>
-            <td>/movies/directors/:directorName</td>
-            <td>GET</td>
-            <td>none</td>
-            <td>A JSON object holding an array with directors name.</td>
-          </tr>
+      <!-- director  -->
+      <tr>
+        <td>Get data about a director by name</td>
+        <td>/movies/directors/:directorName</td>
+        <td>GET</td>
+        <td>none</td>
+        <td>
+          A JSON object holding an array with directors name bio and birth.
+        </td>
+      </tr>
 
-          <!-- Users  -->
+      <!-- Users  -->
 
-          <tr>
-            <td>Add a new user</td>
-            <td>/users</td>
-            <td>POST</td>
-            <td>
-              A JSON object holding user data with structure:
-              <br />
-              <code> { name: "Bobby", favoriteMovies: [] } </code>
-            </td>
-            <td>
-              A JSON object holding user data plus an ID:
-              <br />
-              <code> { id: 1, name: "Bobby", favoriteMovies: [] } </code>
-            </td>
-          </tr>
+      <tr>
+        <td>Add a new user</td>
+        <td>/users</td>
+        <td>POST</td>
+        <td>
+          A JSON object holding user data with structure:
+          <br />
+          <code> { "name": "Bobby", "favoriteMovies":[] } </code>
+        </td>
+        <td>
+          A JSON object holding user data plus an ID:
+          <br />
+          <code>
+            { "name": "Bobby", "favoriteMovies": [], "id":
+            "9326d13a-bb48-417c-b209-0630fc69e9a9" }
+          </code>
+        </td>
+      </tr>
 
-     <!-- allow users update details   -->
-     <td>Update user username</td>
-     <td>/users/:id</td>
-     <td>PUT</td>
-     <td>A JSON object holding user data with structure:
-       <code>
-       {
-         name: "Sven",
-         favoriteMovies: []
-       }
-     </code>
-     </td>
-     <td>A JSON object holding user data plus an ID:
-       <code>
-       {
-         id: 1,
-         name: "Sven",
-         favoriteMovies: []
-       }
-     </code>
-     </td>
-   </tr>
+      <!-- allow users update details   -->
+      <td>Update user username</td>
+      <td>/users/:id</td>
+      <td>PUT</td>
+      <td>
+        A JSON object holding user data with structure:
+        <br />
+        <code> { "name": "Lotte updated name", "favoriteMovies": [] } </code>
+      </td>
+      <td>
+        A JSON object holding user data plus an ID:
+        <br />
+        <code>
+          { "id": 1, "name": "Lotte updated name", "favoriteMovies": [] }
+        </code>
+      </td>
 
       <!-- allow users add favorite movies to list   -->
-
-      <td>Add a movie to user favorite list</td>
-      <td>/users/:id/:movietitle</td>
-      <td>POST</td>
-      <td>None</td>
-      <td>A text message indicating whether a movie was successfully added to the favorite list.</td>
-    </tr>
+      <tr>
+        <td>Add a movie to user favorite list</td>
+        <td>/users/:id/:movieTitle</td>
+        <td>POST</td>
+        <td>None</td>
+        <td>
+          A text message indicating whether a movie was successfully added to
+          the favorite list.
+        </td>
+      </tr>
       <!-- allow users remove favorite movies to list   -->
-	<tr>
-					<td>Remove a movie from user favorite list</td>
-					<td>/users/:id/:movieTitle</td>
-					<td>DELETE</td>
-					<td>None</td>
-					<td>A text message indicating whether a movie was successfully removed from the favorite list.</td>
-				</tr>
+      <tr>
+        <td>Remove a movie from user favorite list</td>
+        <td>/users/:id/:movieTitle</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>
+          A text message indicating whether a movie was successfully removed
+          from the favorite list.
+        </td>
+      </tr>
       <!-- allow users deregister   -->
       <tr>
         <td>Delete user registration</td>
         <td>/users/:id</td>
         <td>DELETE</td>
         <td>None</td>
-        <td>A text message indicating whether a user was successfully removed.</td>
-      </tr>
-
-
+        <td>
+          A text message indicating whether a user[id] was successfully removed.
+        </td>
       </tr>
     </table>
   </body>
