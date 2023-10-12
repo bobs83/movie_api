@@ -1,8 +1,9 @@
-const express = require("express"),
-  fs = require("fs"),
-  morgan = require("morgan"),
-  path = require("path");
-const { result } = require("lodash");
+const express = require("express");
+const morgan = require("morgan");
+const fs = require("fs");
+const path = require("path");
+const bodyParser = require("body-parser");
+const uuid = require("uuid");
 
 const app = express();
 const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
@@ -80,12 +81,13 @@ let movies = [
       Bio: "Wesley Wales Anderson was born in Houston, Texas. During childhood, Anderson also began writing plays and making super-8 movies. Anderson attended the University of Texas in Austin, where he majored in philosophy. It was there that he met Owen Wilson. They became friends and began making short films, some of which aired on a local cable-access station.",
       Birth: 1969.0,
     },
-    ImageURL: " ",
+    ImageURL: "www.google.com",
     Featured: false,
   },
 ];
 
 // USE requests
+app.use(bodyParser.json());
 app.use(morgan("combined", { stream: accessLogStream }));
 app.use(express.static("public"));
 
@@ -99,7 +101,7 @@ app.get("/movies", (req, res) => {
 // Get data about a single movie by title
 app.get("/movies/:title", (req, res) => {
   const { title } = req.params;
-  const { movie } = movie.find((movie) => movie.Title === title);
+  const movie = movies.find((movie) => movie.Title === title);
   if (movie) {
     res.status(200).json(movie);
   } else {
@@ -108,7 +110,7 @@ app.get("/movies/:title", (req, res) => {
 });
 
 // Get data about genre
-app.get("movies/genre/genreName", (req, res) => {
+app.get("/movies/genre/:genreName", (req, res) => {
   const { genreName } = req.params;
   const genre = movies.find((movie) => movie.Genre.Name === genreName).Genre;
   if (genre) {
@@ -119,7 +121,7 @@ app.get("movies/genre/genreName", (req, res) => {
 });
 
 // Get data about director
-app.get("movies/director/:directorName", (req, res) => {
+app.get("/movies/director/:directorName", (req, res) => {
   const { directorName } = req.params;
   const director = movies.find(
     (movie) => movie.Director.Name === directorName
@@ -132,7 +134,6 @@ app.get("movies/director/:directorName", (req, res) => {
 });
 
 //POST // CREATE requests
-
 app.post("/users", (req, res) => {
   const newUser = req.body;
   if (!newUser.name) {
