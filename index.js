@@ -124,7 +124,7 @@ app.post("/users/:id/:movieTitle", (req, res) => {
 
   if (user) {
     user.favoriteMovies.push(movieTitle);
-    res.status(200).json(`${movieTitle} has been added to user ${id}'s list`);
+    res.status(200).json(`${movieTitle} has been added to user ${id}'s favorite list`);
   } else {
     res.status(400).send("no such movie found");
   }
@@ -140,7 +140,7 @@ app.delete("/users/:id/:movieTitle", (req, res) => {
     );
     res
       .status(200)
-      .json(`${movieTitle} has been removed from user ${id}'s list`);
+      .json(`${movieTitle} has been removed from user ${id}'s favorite list`);
   } else {
     res.status(400).send("Movie cant be found in user's list");
   }

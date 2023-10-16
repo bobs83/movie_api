@@ -1,0 +1,716 @@
+[
+    {
+      "Title": "The French Dispatch",
+      "Description": "A love letter to journalists set in an outpost of an American newspaper in a fictional twentieth-century French city that brings to life a collection of stories published in 'The French Dispatch Magazine'.",
+      "Genre": {
+        "Name": "Comedy",
+        "Description": "Is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter."
+      },
+      "Director": {
+        "Name": "Wes Anderson",
+        "Bio": "Wesley Wales Anderson was born in Houston, Texas. During childhood, Anderson also began writing plays and making super-8 movies. Anderson attended the University of Texas in Austin, where he majored in philosophy. It was there that he met Owen Wilson. They became friends and began making short films, some of which aired on a local cable-access station.",
+        "Birth": 1969.0
+      },
+      "ImageURL": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSHZ28VU-SMkaUGIGAT_RsKRFI1sd3wSEftFmPxE0nEA_ex5dzM",
+      "Featured": false
+    },
+    {
+      "Title": "The Matrix",
+      "Description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+      "Genre": {
+        "Name": "Action",
+        "Description": "Action film is a film genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, rescues and frantic chases."
+      },
+      "Director": {
+        "Name": "Lana Wachowski",
+        "Bio": "Lana Wachowski and her sister Lilly Wachowski, also known as the Wachowskis, are the duo behind groundbreaking movies such as 'The Matrix' (1999) and 'Cloud Atlas' (2012). Born to mother Lynne, a nurse, and father Ron, a businessman of Polish descent, Wachowski grew up in Chicago and formed a tight creative relationship with her sister Lilly.",
+        "Birth": 1965.0
+      },
+      "ImageURL": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS4jfQQt_0vCA4XSwGiWkffC32Tv2oajdWhaYHHVYylYGJ3v17Q",
+      "Featured": false
+    },
+    {
+      "Title": "The Tourist",
+      "Description": "Revolves around Frank, an American tourist visiting Italy to mend a broken heart. Elise is an extraordinary woman who deliberately crosses his path.",
+      "Genre": {
+        "Name": "Thriller",
+        "Description": "A thriller is a type of mystery with a few key differences. As its name suggests, thrillers tend to be action-packed, page-turners with moments full of tension, anxiety, and fear. Without fail, they are plot-driven stories with plenty of plot twists."
+      },
+      "Director": {
+        "Name": "Florian Henckel von Donnersmarck",
+        "Bio": "Florian Maria Georg Christian Graf Henckel von Donnersmarck (born 2 May 1973) is a German film director, best known for writing and directing the 2006 Oscar-winning dramatic thriller 'The Lives of Others,' the 2010 three-time Golden Globe-nominated romantic thriller 'The Tourist' starring Angelina Jolie and Johnny Depp, and the 2018 epic drama 'Never Look Away.'",
+        "Birth": 1973.0
+      },
+      "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKzhAiUDi45xBViaOd65U5VDgx2QDCEyHCJ43Wk3D1lTrGWdB2",
+      "Featured": false
+    },
+    {
+      "Title": "The Others",
+      "Description": "In 1945, immediately following the end of the Second World War, a woman who lives with her two photosensitive children on her darkened old family estate in the Channel Islands becomes convinced that the home is haunted.",
+      "Genre": {
+        "Name": "Horror",
+        "Description": "Horror is a genre of literature, film, and television that is meant to scare, startle, shock, and even repulse audiences. The key focus of a horror novel, horror film, or horror TV show is to elicit a sense of dread in the reader through frightening images, themes, and situations."
+      },
+      "Director": {
+        "Name": "Alejandro Amenábar",
+        "Bio": "Alejandro Fernando Amenábar Cantos is a Chilean-Spanish film director, screenwriter, and composer. He has won nine Goyas, including a Goya Award for Best Director for his 2001 film 'The Others,' two European Film Awards, and one Academy Award for Best Foreign Language Film for 'The Sea Inside,' among other honors.",
+        "Birth": 1972.0
+      },
+      "ImageURL": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQDRJ6gyA9B10i5eGHn1jGZu9PU4Cl9EgpvmBWbtmD5uWI3cBZs",
+      "Featured": false
+    },
+    {
+      "Title": "Amélie",
+      "Description": "A whimsical and romantic French film that tells the story of a shy waitress who sets out to improve the lives of those around her in a charming neighborhood of Paris.",
+      "Genre": {
+        "Name": "Romantic Comedy",
+        "Description": "A genre that combines elements of romance and humor."
+      },
+      "Director": {
+        "Name": "Jean-Pierre Jeunet",
+        "Bio": "Jean-Pierre Jeunet is a French filmmaker. His films combine fantasy, realism, and science fiction to create idealized realities or to give relevance to mundane situations.",
+        "Birth": 1953.0
+      },
+      "ImageURL": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQDRJ6gyA9B10i5eGHn1jGZu9PU4Cl9EgpvmBWbtmD5uWI3cBZs",
+      "Featured": false
+    },
+    {
+      "Title": "The Fifth Element",
+      "Description": "Korben Dallas, a cab driver, tries to secure four mystical stones and a mysterious fifth element that alone can defeat a cosmic evil force during an apocalyptic war.",
+      "Genre": {
+        "Name": "Sci-Fi",
+        "Description": "A genre that explores futuristic and speculative concepts."
+      },
+      "Director": {
+        "Name": "Luc Besson",
+        "Bio": "Luc Besson is a French film director, screenwriter, and producer. He directed or produced the films 'Subway' (1985), 'The Big Blue' (1988), and 'Nikita' (1990). Besson is known for his distinctive filmmaking style and is associated with what the movement critics call Cinéma du look.",
+        "Birth": 1959.0
+      },
+      "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnHxC5rmn9c0DyXM5htwUrAuc5YRfclpFNVggYfpyHuGADDvpX",
+      "Featured": false
+    },
+    {
+      "Title": "Inception",
+      "Description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
+      "Genre": {
+        "Name": "Sci-Fi",
+        "Description": "A genre that explores futuristic and speculative concepts."
+      },
+      "Director": {
+        "Name": "Christopher Nolan",
+        "Bio": "Christopher Edward Nolan CBE is a British and American filmmaker. Known for his Hollywood blockbusters with complex storytelling, Nolan is considered a leading filmmaker of the 21st century.",
+        "Birth": 1970.0
+      },
+      "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnHxC5rmn9c0DyXM5htwUrAuc5YRfclpFNVggYfpyHuGADDvpX",
+      "Featured": false
+    },
+    {
+        "Title": "Fucking Åmål",
+        "Description": "A coming-of-age film about the romantic and personal struggles of two teenage girls in a small Swedish town.",
+        "Genre": {
+        "Name": "Drama",
+        "Description": "A genre that focuses on realistic storytelling and emotional depth."
+        },
+        "Director": {
+        "Name": "Lukas Moodysson",
+        "Bio": "Lukas Moodysson is a Swedish filmmaker known for his work in depicting the lives of young people. He directed 'Fucking Åmål.'",
+        "Birth": 1969.0
+        },
+        "ImageURL": "https://example.com/fucking-amal.jpg",
+        "Featured": true
+    },
+    {
+        "Title": "Star Wars: Episode V",
+        "Description": "The Rebel Alliance battles the Galactic Empire as they seek to destroy the Death Star and confront the evil Darth Vader.",
+        "Genre": {
+        "Name": "Sci-Fi",
+        "Description": "A genre that explores futuristic and speculative concepts."
+        },
+        "Director": {
+        "Name": "Irvin Kershner",
+        "Bio": "Irvin Kershner was an American filmmaker known for directing the iconic 'Star Wars: Episode V - The Empire Strikes Back.'",
+        "Birth": "April 29, 1923"
+        },
+        "ImageURL": "https://example.com/star-wars-episode-v.jpg",
+        "Featured": false
+    },
+    {
+        "Title": "The Lion King",
+        "Description": "A classic Disney animated film that tells the story of a young lion prince's journey to reclaim his throne after the murder of his father.",
+        "Genre": {
+        "Name": "Animation",
+        "Description": "A genre that uses artistic techniques to create animated visuals."
+        },
+        "Director": {
+        "Name": "Rob Minkoff",
+        "Bio": "Rob Minkoff is an American director known for his work in animation. He directed 'The Lion King.'",
+        "Birth": 1962
+        },
+        "ImageURL": "https://example.com/the-lion-king.jpg",
+        "Featured": false
+    }
+    {
+      "Title": "The Matrix Reloaded",
+      "Description": "Neo, Trinity, and Morpheus continue their struggle against the machines as they seek to free humanity from the Matrix. The prophecy of 'The One' unfolds, leading to a high-stakes battle in both the real world and the simulated reality of the Matrix.",
+      "Genre": {
+        "Name": "Action",
+        "Description": "Action film is a genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, rescues, and frantic chases."
+      },
+      "Director": {
+        "Name": "Lana Wachowski",
+        "Bio": "Lana Wachowski, along with her sister Lilly Wachowski, is known for groundbreaking movies such as 'The Matrix Reloaded' (2003) and 'The Matrix Revolutions' (2003). Born to mother Lynne, a nurse, and father Ron, a businessman of Polish descent, Lana Wachowski grew up in Chicago and formed a tight creative relationship with her sister Lilly.",
+        "Birth": 1965.0
+      },
+      "ImageURL": "https://example.com/the-matrix-reloaded.jpg",
+      "Featured": "false"
+    }
+    ]
+
+
+
+
+    ('The French Dispatch', 'A love letter to journalists set in an outpost of an American newspaper in a fictional twentieth-century French city that brings to life a collection of stories published in ''The French Dispatch Magazine''.', 4, 3, 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSHZ28VU-SMkaUGIGAT_RsKRFI1sd3wSEftFmPxE0nEA_ex5dzM', false),
+    ('The Matrix', 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.', 9, 4, 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS4jfQQt_0vCA4XSwGiWkffC32Tv2oajdWhaYHHVYylYGJ3v17Q', false),
+    ('The Tourist', 'Revolves around Frank, an American tourist visiting Italy to mend a broken heart. Elise is an extraordinary woman who deliberately crosses his path.', 1, 5, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKzhAiUDi45xBViaOd65U5VDgx2QDCEyHCJ43Wk3D1lTrGWdB2', false),
+    ('The Others', 'In 1945, immediately following the end of the Second World War, a woman who lives with her two photosensitive children on her darkened old family estate in the Channel Islands becomes convinced that the home is haunted.', 7, 6, 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQDRJ6gyA9B10i5eGHn1jGZu9PU4Cl9EgpvmBWbtmD5uWI3cBZs', false),
+    ('Amélie', 'A whimsical and romantic French film that tells the story of a shy waitress who sets out to improve the lives of those around her in a charming neighborhood of Paris.', 8, 7, 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQDRJ6gyA9B10i5eGHn1jGZu9PU4Cl9EgpvmBWbtmD5uWI3cBZs', false),
+    ('The Fifth Element', 'Korben Dallas, a cab driver, tries to secure four mystical stones and a mysterious fifth element that alone can defeat a cosmic evil force during an apocalyptic war.', 9, 8, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnHxC5rmn9c0DyXM5htwUrAuc5YRfclpFNVggYfpyHuGADDvpX', false),
+    ('Inception', 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.', 1, 9, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnHxC5rmn9c0DyXM5htwUrAuc5YRfclpFNVggYfpyHuGADDvpX', false),
+    ('Fucking Åmål', 'A coming-of-age film about the romantic and personal struggles of two teenage girls in a small Swedish town.', 10, 10, 'https://example.com/fucking-amal.jpg', True),
+    ('Star Wars: Episode V', 'The Rebel Alliance battles the Galactic Empire as they seek to destroy the Death Star and confront the evil Darth Vader.', 9, 11, 'https://example.com/star-wars-episode-v.jpg', false),
+    ('The Lion King', 'A classic Disney animated film that tells the story of a young lion prince''s journey to reclaim his throne after the murder of his father.', 2, 12, 'https://example.com/the-lion-king.jpg', false),
+    ('The Matrix Reloaded', 'Neo, Trinity, and Morpheus continue their struggle against the machines as they seek to free humanity from the Matrix. The prophecy of ''The One'' unfolds, leading to a high-stakes battle in both the real world and the simulated reality of the Matrix.', 9, 4, 'https://example.com/the-matrix-reloaded.jpg', false);
+
+    1	"Jonathan Demme"	"Robert Jonathan Demme was an American director, producer, and screenwriter."	"1944-01-01"	"2017-01-01"
+    2	"Judd Apatow"	"Judd Apatow is an American producer, writer, director, actor and stand-up comedian."	"1967-01-01"	
+    3	"Wes Anderson"	"Wesley Wales Anderson was born in Houston, Texas. During childhood, Anderson also began writing plays and making super-8 movies. Anderson attended the University of Texas in Austin, where he majored in philosophy. It was there that he met Owen Wilson. They became friends and began making short films, some of which aired on a local cable-access station."	"1969-01-01"	
+    4	"Lana Wachowski"	"Lana Wachowski and her sister Lilly Wachowski, also known as the Wachowskis, are the duo behind groundbreaking movies such as 'The Matrix' (1999) and 'Cloud Atlas' (2012). Born to mother Lynne, a nurse, and father Ron, a businessman of Polish descent, Wachowski grew up in Chicago and formed a tight creative relationship with her sister Lilly."	"1965-01-01"	
+    5	"Florian Henckel von Donnersmarck"	"Florian Maria Georg Christian Graf Henckel von Donnersmarck (born 2 May 1973) is a German film director, best known for writing and directing the 2006 Oscar-winning dramatic thriller 'The Lives of Others,' the 2010 three-time Golden Globe-nominated romantic thriller 'The Tourist' starring Angelina Jolie and Johnny Depp, and the 2018 epic drama 'Never Look Away."	"1973-01-01"	
+    6	"Alejandro Amenábar"	"Alejandro Fernando Amenábar Cantos is a Chilean-Spanish film director, screenwriter, and composer. He has won nine Goyas, including a Goya Award for Best Director for his 2001 film 'The Others,' two European Film Awards, and one Academy Award for Best Foreign Language Film for 'The Sea Inside,' among other honors."	"1972-01-01"	
+    7	"Jean-Pierre Jeunet"	"Jean-Pierre Jeunet is a French filmmaker. His films combine fantasy, realism, and science fiction to create idealized realities or to give relevance to mundane situations."	"1953-01-01"	
+    8	"Luc Besson"	"Luc Besson is a French film director, screenwriter, and producer. He directed or produced the films 'Subway' (1985), 'The Big Blue' (1988), and 'Nikita' (1990). Besson is known for his distinctive filmmaking style and is associated with what the movement critics call Cinéma du look."	"1959-01-01"	
+    9	"Christopher Nolan"	"Christopher Edward Nolan CBE is a British and American filmmaker. Known for his Hollywood blockbusters with complex storytelling, Nolan is considered a leading filmmaker of the 21st century."	"1970-01-01"	
+    10	"Lukas Moodysson"	"Lukas Moodysson is a Swedish filmmaker known for his work in depicting the lives of young people."	"1969-01-01"	
+    11	"Irvin Kershner"	"Irvin Kershner was an American filmmaker known for directing the iconic Star Wars: Episode V - The Empire Strikes Back."	"1923-04-29"	
+    12	"Rob Minkoff"	"Rob Minkoff is an American director known for his work in animation."	"1962-01-01"	
+
+
+
+    2	"Animated"	"Animation is a method in which pictures are manipulated to appear as moving images. In traditional animation, images are drawn or painted by hand on transparent celluloid sheets to be photographed and exhibited on film."
+    3	"Comedy"	"Comedy is a genre of film in which the main emphasis is on humor. These films are designed to make the audience laugh through amusement and most often work by exaggerating characteristics for humorous effect."
+    1	"Thriller"	"Thriller film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience. Tension is created by delaying what the audience sees as inevitable, and is built through situations that are menacing or where escape seems impossible."
+    4	"Comedy"	"Is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter."
+    5	"Action"	"Action film is a genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, rescues, and frantic chases."
+    7	"Horror"	"Horror is a genre of literature, film, and television that is meant to scare, startle, shock, and even repulse audiences. The key focus of a horror novel, horror film, or horror TV show is to elicit a sense of dread in the reader through frightening images, themes, and situations."
+    8	"Romantic comedy"	"A genre that combines elements of romance and humor."
+    9	"Sci-Fi"	"A genre that explores futuristic and speculative concepts."
+    10	"Drama"	"A genre that focuses on realistic storytelling and emotional depth."
+
+    13	"The French Dispatch"	"A love letter to journalists set in an outpost of an American newspaper in a fictional twentieth-century French city that brings to life a collection of stories published in 'The French Dispatch Magazine'."	3	4	"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSHZ28VU-SMkaUGIGAT_RsKRFI1sd3wSEftFmPxE0nEA_ex5dzM"	false
+    14	"The Matrix"	"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers."	4	9	"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS4jfQQt_0vCA4XSwGiWkffC32Tv2oajdWhaYHHVYylYGJ3v17Q"	false
+    15	"The Tourist"	"Revolves around Frank, an American tourist visiting Italy to mend a broken heart. Elise is an extraordinary woman who deliberately crosses his path."	5	1	"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKzhAiUDi45xBViaOd65U5VDgx2QDCEyHCJ43Wk3D1lTrGWdB2"	false
+    16	"The Others"	"In 1945, immediately following the end of the Second World War, a woman who lives with her two photosensitive children on her darkened old family estate in the Channel Islands becomes convinced that the home is haunted."	6	7	"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQDRJ6gyA9B10i5eGHn1jGZu9PU4Cl9EgpvmBWbtmD5uWI3cBZs"	false
+    17	"Amélie"	"A whimsical and romantic French film that tells the story of a shy waitress who sets out to improve the lives of those around her in a charming neighborhood of Paris."	7	8	"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQDRJ6gyA9B10i5eGHn1jGZu9PU4Cl9EgpvmBWbtmD5uWI3cBZs"	false
+    18	"The Fifth Element"	"Korben Dallas, a cab driver, tries to secure four mystical stones and a mysterious fifth element that alone can defeat a cosmic evil force during an apocalyptic war."	8	9	"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnHxC5rmn9c0DyXM5htwUrAuc5YRfclpFNVggYfpyHuGADDvpX"	false
+    19	"Inception"	"A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster."	9	1	"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnHxC5rmn9c0DyXM5htwUrAuc5YRfclpFNVggYfpyHuGADDvpX"	false
+    20	"Fucking Åmål"	"A coming-of-age film about the romantic and personal struggles of two teenage girls in a small Swedish town."	10	10	"https://example.com/fucking-amal.jpg"	true
+    21	"Star Wars: Episode V"	"The Rebel Alliance battles the Galactic Empire as they seek to destroy the Death Star and confront the evil Darth Vader."	11	9	"https://example.com/star-wars-episode-v.jpg"	false
+    22	"The Lion King"	"A classic Disney animated film that tells the story of a young lion prince's journey to reclaim his throne after the murder of his father."	12	2	"https://example.com/the-lion-king.jpg"	false
+    23	"The Matrix Reloaded"	"Neo, Trinity, and Morpheus continue their struggle against the machines as they seek to free humanity from the Matrix. The prophecy of 'The One' unfolds, leading to a high-stakes battle in both the real world and the simulated reality of the Matrix."	4	9	"https://example.com/the-matrix-reloaded.jpg"	false
+    25	"Silence of the Lambs"	"A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer."	1	1	"silenceofthelambs.png"	true
+
+    2	"Tommy00"	"xxx"	"tommy12@gmail.com"	"1973-06-11"
+3	"Robert"	"xxx"	"robert14@gmail.com"	"1993-09-12"
+4	"Eliza"	"xxx"	"eliza11@gmail.com"	"1982-01-08"
+1	"ruby12"	"xxx"	"ruby12@hotmail.com"	"1983-03-01"
+
+
+[
+    {
+      _id: ObjectId("652d5b37c1c10235974385b4"),
+      Name: 'Wes Anderson',
+      Bio: 'Wesley Wales Anderson was born in Houston, Texas. During childhood, Anderson also began writing plays and making super-8 movies. Anderson attended the University of Texas in Austin, where he majored in philosophy. It was there that he met Owen Wilson. They became friends and began making short films, some of which aired on a local cable-access station.',
+      Birth: 1969
+    },
+    {
+      _id: ObjectId("652d5b37c1c10235974385b5"),
+      Name: 'Lana Wachowski',
+      Bio: "Lana Wachowski and her sister Lilly Wachowski, also known as the Wachowskis, are the duo behind groundbreaking movies such as 'The Matrix' (1999) and 'Cloud Atlas' (2012). Born to mother Lynne, a nurse, and father Ron, a businessman of Polish descent, Wachowski grew up in Chicago and formed a tight creative relationship with her sister Lilly.",
+      Birth: 1965
+    },
+    {
+      _id: ObjectId("652d5b37c1c10235974385b6"),
+      Name: 'Florian Henckel von Donnersmarck',
+      Bio: "Florian Maria Georg Christian Graf Henckel von Donnersmarck (born 2 May 1973) is a German film director, best known for writing and directing the 2006 Oscar-winning dramatic thriller 'The Lives of Others,' the 2010 three-time Golden Globe-nominated romantic thriller 'The Tourist' starring Angelina Jolie and Johnny Depp, and the 2018 epic drama 'Never Look Away.'",
+      Birth: 1973
+    },
+    {
+      _id: ObjectId("652d5b37c1c10235974385b7"),
+      Name: 'Alejandro Amenábar',
+      Bio: "Alejandro Fernando Amenábar Cantos is a Chilean-Spanish film director, screenwriter, and composer. He has won nine Goyas, including a Goya Award for Best Director for his 2001 film 'The Others,' two European Film Awards, and one Academy Award for Best Foreign Language Film for 'The Sea Inside,' among other honors.",
+      Birth: 1972
+    },
+    {
+      _id: ObjectId("652d5b37c1c10235974385b8"),
+      Name: 'Jean-Pierre Jeunet',
+      Bio: 'Jean-Pierre Jeunet is a French filmmaker. His films combine fantasy, realism, and science fiction to create idealized realities or to give relevance to mundane situations.',
+      Birth: 1953
+    },
+    {
+      _id: ObjectId("652d5b37c1c10235974385b9"),
+      Name: 'Luc Besson',
+      Bio: "Luc Besson is a French film director, screenwriter, and producer. He directed or produced the films 'Subway' (1985), 'The Big Blue' (1988), and 'Nikita' (1990). Besson is known for his distinctive filmmaking style and is associated with what the movement critics call Cinéma du look.",
+      Birth: 1959
+    },
+    {
+      _id: ObjectId("652d5b37c1c10235974385ba"),
+      Name: 'Christopher Nolan',
+      Bio: 'Christopher Edward Nolan CBE is a British and American filmmaker. Known for his Hollywood blockbusters with complex storytelling, Nolan is considered a leading filmmaker of the 21st century.',
+      Birth: 1970
+    },
+    {
+      _id: ObjectId("652d5b37c1c10235974385bb"),
+      Name: 'Lukas Moodysson',
+      Bio: "Lukas Moodysson is a Swedish filmmaker known for his work in depicting the lives of young people. He directed 'Fucking Åmål.'",
+      Birth: 1969
+    },
+    {
+      _id: ObjectId("652d5b37c1c10235974385bc"),
+      Name: 'Irvin Kershner',
+      Bio: "Irvin Kershner was an American filmmaker known for directing the iconic 'Star Wars: Episode V - The Empire Strikes Back.'",
+      Birth: 'April 29, 1923'
+    },
+    {
+      _id: ObjectId("652d5b37c1c10235974385bd"),
+      Name: 'Rob Minkoff',
+      Bio: "Rob Minkoff is an American director known for his work in animation. He directed 'The Lion King.'",
+      Birth: 1962
+    },
+    {
+      _id: ObjectId("652d5b37c1c10235974385be"),
+      Name: 'Lana Wachowski',
+      Bio: "Lana Wachowski, along with her sister Lilly Wachowski, is known for groundbreaking movies such as 'The Matrix Reloaded' (2003) and 'The Matrix Revolutions' (2003). Born to mother Lynne, a nurse, and father Ron, a businessman of Polish descent, Lana Wachowski grew up in Chicago and formed a tight creative relationship with her sister Lilly.",
+      Birth: 1965
+    }
+  ]
+
+            db.directors.insertMany([
+                {
+                    "Name": "Wes Anderson",
+                    "Bio": "Wesley Wales Anderson was born in Houston, Texas. During childhood, Anderson also began writing plays and making super-8 movies. Anderson attended the University of Texas in Austin, where he majored in philosophy. It was there that he met Owen Wilson. They became friends and began making short films, some of which aired on a local cable-access station.",
+                    "Birth": 1969.0
+                },
+                {
+                    "Name": "Lana Wachowski",
+                    "Bio": "Lana Wachowski and her sister Lilly Wachowski, also known as the Wachowskis, are the duo behind groundbreaking movies such as 'The Matrix' (1999) and 'Cloud Atlas' (2012). Born to mother Lynne, a nurse, and father Ron, a businessman of Polish descent, Wachowski grew up in Chicago and formed a tight creative relationship with her sister Lilly.",
+                    "Birth": 1965.0
+                },
+                {
+                    "Name": "Florian Henckel von Donnersmarck",
+                    "Bio": "Florian Maria Georg Christian Graf Henckel von Donnersmarck (born 2 May 1973) is a German film director, best known for writing and directing the 2006 Oscar-winning dramatic thriller 'The Lives of Others,' the 2010 three-time Golden Globe-nominated romantic thriller 'The Tourist' starring Angelina Jolie and Johnny Depp, and the 2018 epic drama 'Never Look Away.'",
+                    "Birth": 1973.0
+                },
+                {
+                    "Name": "Alejandro Amenábar",
+                    "Bio": "Alejandro Fernando Amenábar Cantos is a Chilean-Spanish film director, screenwriter, and composer. He has won nine Goyas, including a Goya Award for Best Director for his 2001 film 'The Others,' two European Film Awards, and one Academy Award for Best Foreign Language Film for 'The Sea Inside,' among other honors.",
+                    "Birth": 1972.0
+                },
+                {
+                    "Name": "Jean-Pierre Jeunet",
+                    "Bio": "Jean-Pierre Jeunet is a French filmmaker. His films combine fantasy, realism, and science fiction to create idealized realities or to give relevance to mundane situations.",
+                    "Birth": 1953.0
+                },
+                {
+                    "Name": "Luc Besson",
+                    "Bio": "Luc Besson is a French film director, screenwriter, and producer. He directed or produced the films 'Subway' (1985), 'The Big Blue' (1988), and 'Nikita' (1990). Besson is known for his distinctive filmmaking style and is associated with what the movement critics call Cinéma du look.",
+                    "Birth": 1959.0
+                },
+                {
+                    "Name": "Christopher Nolan",
+                    "Bio": "Christopher Edward Nolan CBE is a British and American filmmaker. Known for his Hollywood blockbusters with complex storytelling, Nolan is considered a leading filmmaker of the 21st century.",
+                    "Birth": 1970.0
+                },
+                {
+                    "Name": "Lukas Moodysson",
+                    "Bio": "Lukas Moodysson is a Swedish filmmaker known for his work in depicting the lives of young people. He directed 'Fucking Åmål.'",
+                    "Birth": 1969.0
+                },
+                {
+                    "Name": "Irvin Kershner",
+                    "Bio": "Irvin Kershner was an American filmmaker known for directing the iconic 'Star Wars: Episode V - The Empire Strikes Back.'",
+                    "Birth": "April 29, 1923"
+                },
+                {
+                    "Name": "Rob Minkoff",
+                    "Bio": "Rob Minkoff is an American director known for his work in animation. He directed 'The Lion King.'",
+                    "Birth": 1962
+                },
+                {
+                    "Name": "Lana Wachowski",
+                    "Bio": "Lana Wachowski, along with her sister Lilly Wachowski, is known for groundbreaking movies such as 'The Matrix Reloaded' (2003) and 'The Matrix Revolutions' (2003). Born to mother Lynne, a nurse, and father Ron, a businessman of Polish descent, Lana Wachowski grew up in Chicago and formed a tight creative relationship with her sister Lilly.",
+                    "Birth": 1965.0
+                }
+            ]);
+            
+            [
+                {
+                  _id: ObjectId("652d5cefc1c10235974385bf"),
+                  Name: 'Comedy',
+                  Description: 'Is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter.'
+                },
+                {
+                  _id: ObjectId("652d5cefc1c10235974385c0"),
+                  Name: 'Action',
+                  Description: 'Action film is a genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, rescues and frantic chases.'
+                },
+                {
+                  _id: ObjectId("652d5cefc1c10235974385c1"),
+                  Name: 'Thriller',
+                  Description: 'A thriller is a type of mystery with a few key differences. As its name suggests, thrillers tend to be action-packed, page-turners with moments full of tension, anxiety, and fear. Without fail, they are plot-driven stories with plenty of plot twists.'
+                },
+                {
+                  _id: ObjectId("652d5cefc1c10235974385c2"),
+                  Name: 'Horror',
+                  Description: 'Horror is a genre of literature, film, and television that is meant to scare, startle, shock, and even repulse audiences. The key focus of a horror novel, horror film, or horror TV show is to elicit a sense of dread in the reader through frightening images, themes, and situations.'
+                },
+                {
+                  _id: ObjectId("652d5cefc1c10235974385c3"),
+                  Name: 'Romantic Comedy',
+                  Description: 'A genre that combines elements of romance and humor.'
+                },
+                {
+                  _id: ObjectId("652d5cefc1c10235974385c4"),
+                  Name: 'Sci-Fi',
+                  Description: 'A genre that explores futuristic and speculative concepts.'
+                },
+                {
+                  _id: ObjectId("652d5cefc1c10235974385c5"),
+                  Name: 'Drama',
+                  Description: 'A genre that focuses on realistic storytelling and emotional depth.'
+                },
+                {
+                  _id: ObjectId("652d5cefc1c10235974385c6"),
+                  Name: 'Animation',
+                  Description: 'A genre that uses artistic techniques to create animated visuals.'
+                }
+              ]
+
+
+
+
+
+
+
+            db.genre.insertMany([      
+                {
+                    "Name": "Comedy",
+                    "Description": "Is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter."
+                },
+                {
+                    "Name": "Action",
+                    "Description": "Action film is a genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, rescues and frantic chases."
+                },
+                {
+                    "Name": "Thriller",
+                    "Description": "A thriller is a type of mystery with a few key differences. As its name suggests, thrillers tend to be action-packed, page-turners with moments full of tension, anxiety, and fear. Without fail, they are plot-driven stories with plenty of plot twists."
+                },
+                {
+                    "Name": "Horror",
+                    "Description": "Horror is a genre of literature, film, and television that is meant to scare, startle, shock, and even repulse audiences. The key focus of a horror novel, horror film, or horror TV show is to elicit a sense of dread in the reader through frightening images, themes, and situations."
+                },
+                {
+                    "Name": "Romantic Comedy",
+                    "Description": "A genre that combines elements of romance and humor."
+                },
+                {
+                    "Name": "Sci-Fi",
+                    "Description": "A genre that explores futuristic and speculative concepts."
+                },
+                {
+                    "Name": "Drama",
+                    "Description": "A genre that focuses on realistic storytelling and emotional depth."
+                },
+                {
+                    "Name": "Animation",
+                    "Description": "A genre that uses artistic techniques to create animated visuals."
+                },
+                {
+                    "Name": "Action",
+                    "Description": "Action film is a genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, rescues, and frantic chases."
+                }
+            ]
+            );
+            
+            db.users.insertMany([
+                {
+                    "Name": "Tommy00",
+                    "Password": "xxx",
+                    "Email": "tommy12@gmail.com",
+                    "Birthday": "1973-06-11",
+                    "Favorite_Movies": [
+                        ObjectId("652d83e4fd2bee0e91cb39aa"),
+                        ObjectId("652d83e4fd2bee0e91cb39a9")
+                    ]
+                },
+                {
+                    "Name": "Robert",
+                    "Password": "xxx",
+                    "Email": "robert14@gmail.com",
+                    "Birthday": "1993-09-12",
+                    "Favorite_Movies": [
+                        ObjectId("652d83e4fd2bee0e91cb39a8"),
+                        ObjectId("652d83e4fd2bee0e91cb39ae")
+                    ]
+                },
+                {
+                    "Name": "Eliza",
+                    "Password": "xxx",
+                    "Email": "eliza11@gmail.com",
+                    "Birthday": "1982-01-08",
+                    "Favorite_Movies": [
+                        ObjectId("652d83e4fd2bee0e91cb39ab"),
+                        ObjectId("652d83e4fd2bee0e91cb39ac")
+                    ]
+                },
+                {
+                    "Name": "Ruby",
+                    "Password": "xxx",
+                    "Email": "ruby12@hotmail.com",
+                    "Birthday": "1983-03-01",
+                    "Favorite_Movies": [
+                        ObjectId("652d83e4fd2bee0e91cb39ab"),
+                        ObjectId("652d83e4fd2bee0e91cb39ac")
+                    ]
+                },
+                {
+                    "Name": "John",
+                    "Password": "xxx",
+                    "Email": "john@example.com",
+                    "Birthday": "1990-12-15",
+                    "Favorite_Movies": [
+                        ObjectId("652d83e4fd2bee0e91cb39aa"),
+                        ObjectId("652d83e4fd2bee0e91cb39b0")
+                    ]
+                }
+            ]);
+            
+
+
+
+            db.movies.insertMany([
+                {
+                    "Title": "The French Dispatch",
+                    "Description": "A love letter to journalists set in an outpost of an American newspaper in a fictional twentieth-century French city that brings to life a collection of stories published in 'The French Dispatch Magazine'.",
+                    "Genre": ObjectId("652d7f3efd2bee0e91cb39a0"),
+                    "Director": ObjectId("652d5b37c1c10235974385b4"),
+                    "ImageURL": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSHZ28VU-SMkaUGIGAT_RsKRFI1sd3wSEftFmPxE0nEA_ex5dzM",
+                    "Featured": false
+                },
+                {
+                    "Title": "The Matrix",
+                    "Description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+                    "Genre": ObjectId("652d7f3efd2bee0e91cb39a5"),
+                    "Director": ObjectId("652d5b37c1c10235974385b5"),
+                    "ImageURL": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS4jfQQt_0vCA4XSwGiWkffC32Tv2oajdWhaYHHVYylYGJ3v17Q",
+                    "Featured": false
+                },
+                {
+                    "Title": "The Tourist",
+                    "Description": "Revolves around Frank, an American tourist visiting Italy to mend a broken heart. Elise is an extraordinary woman who deliberately crosses his path.",
+                    "Genre": ObjectId("652d7f3efd2bee0e91cb39a2"),
+                    "Director": ObjectId("652d5b37c1c10235974385b6"),
+                    "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKzhAiUDi45xBViaOd65U5VDgx2QDCEyHCJ43Wk3D1lTrGWdB2",
+                    "Featured": false
+                },
+                {
+                    "Title": "The Others",
+                    "Description": "In 1945, immediately following the end of the Second World War, a woman who lives with her two photosensitive children on her darkened old family estate in the Channel Islands becomes convinced that the home is haunted.",
+                    "Genre": ObjectId("652d7f3efd2bee0e91cb39a3"),
+                    "Director": ObjectId("652d5b37c1c10235974385b7"),
+                    "ImageURL": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQDRJ6gyA9B10i5eGHn1jGZu9PU4Cl9EgpvmBWbtmD5uWI3cBZs",
+                    "Featured": false
+                },
+                {
+                    "Title": "Amélie",
+                    "Description": "A whimsical and romantic French film that tells the story of a shy waitress who sets out to improve the lives of those around her in a charming neighborhood of Paris.",
+                    "Genre": ObjectId("652d7f3efd2bee0e91cb39a4"),
+                    "Director": ObjectId("652d5b37c1c10235974385b8"),
+                    "ImageURL": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQDRJ6gyA9B10i5eGHn1jGZu9PU4Cl9EgpvmBWbtmD5uWI3cBZs",
+                    "Featured": false
+                },
+                {
+                    "Title": "The Fifth Element",
+                    "Description": "Korben Dallas, a cab driver, tries to secure four mystical stones and a mysterious fifth element that alone can defeat a cosmic evil force during an apocalyptic war.",
+                    "Genre": ObjectId("652d7f3efd2bee0e91cb39a5"),
+                    "Director": ObjectId("652d5b37c1c10235974385b9"),
+                    "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnHxC5rmn9c0DyXM5htwUrAuc5YRfclpFNVggYfpyHuGADDvpX",
+                    "Featured": false
+                },
+                {
+                    "Title": "Inception",
+                    "Description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
+                    "Genre": ObjectId("652d7f3efd2bee0e91cb39a2"),
+                    "Director": ObjectId("652d5b37c1c10235974385ba"),
+                    "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnHxC5rmn9c0DyXM5htwUrAuc5YRfclpFNVggYfpyHuGADDvpX",
+                    "Featured": false
+                },
+                {
+                    "Title": "Fucking Åmål",
+                    "Description": "A coming-of-age film about the romantic and personal struggles of two teenage girls in a small Swedish town.",
+                    "Genre": ObjectId("652d7f3efd2bee0e91cb39a6"),
+                    "Director": ObjectId("652d5b37c1c10235974385bb"),
+                    "ImageURL": "https://example.com/fucking-amal.jpg",
+                    "Featured": true
+                },
+                {
+                    "Title": "Star Wars: Episode V",
+                    "Description": "The Rebel Alliance battles the Galactic Empire as they seek to destroy the Death Star and confront the evil Darth Vader.",
+                    "Genre": ObjectId("652d7f3efd2bee0e91cb39a5"),
+                    "Director": ObjectId("652d5b37c1c10235974385bc"),
+                    "ImageURL": "https://example.com/star-wars-episode-v.jpg",
+                    "Featured": false
+                },
+                {
+                    "Title": "The Lion King",
+                    "Description": "A classic Disney animated film that tells the story of a young lion prince's journey to reclaim his throne after the murder of his father.",
+                    "Genre": ObjectId("652d7f3efd2bee0e91cb39a7"),
+                    "Director": ObjectId("652d5b37c1c10235974385bd"),
+                    "ImageURL": "https://example.com/the-lion-king.jpg",
+                    "Featured": false
+                },
+                {
+                    "Title": "The Matrix Reloaded",
+                    "Description": "Neo, Trinity, and Morpheus continue their struggle against the machines as they seek to free humanity from the Matrix. The prophecy of 'The One' unfolds, leading to a high-stakes battle in both the real world and the simulated reality of the Matrix.",
+                    "Genre": ObjectId("652d7f3efd2bee0e91cb39a1"),
+                    "Director": ObjectId("652d5b37c1c10235974385be"),
+                    "ImageURL": "https://example.com/the-matrix-reloaded.jpg",
+                    "Featured": false
+                }
+            ]
+            );
+
+
+            [
+                {
+                  _id: ObjectId("652d83e4fd2bee0e91cb39a8"),
+                  Title: 'The French Dispatch',
+                  Description: "A love letter to journalists set in an outpost of an American newspaper in a fictional twentieth-century French city that brings to life a collection of stories published in 'The French Dispatch Magazine'.",
+                  Genre: ObjectId("652d7f3efd2bee0e91cb39a0"),
+                  Director: ObjectId("652d5b37c1c10235974385b4"),
+                  ImageURL: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSHZ28VU-SMkaUGIGAT_RsKRFI1sd3wSEftFmPxE0nEA_ex5dzM',
+                  Featured: false
+                },
+                {
+                  _id: ObjectId("652d83e4fd2bee0e91cb39a9"),
+                  Title: 'The Matrix',
+                  Description: 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.',
+                  Genre: ObjectId("652d7f3efd2bee0e91cb39a5"),
+                  Director: ObjectId("652d5b37c1c10235974385b5"),
+                  ImageURL: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS4jfQQt_0vCA4XSwGiWkffC32Tv2oajdWhaYHHVYylYGJ3v17Q',
+                  Featured: false
+                },
+                {
+                  _id: ObjectId("652d83e4fd2bee0e91cb39aa"),
+                  Title: 'The Tourist',
+                  Description: 'Revolves around Frank, an American tourist visiting Italy to mend a broken heart. Elise is an extraordinary woman who deliberately crosses his path.',
+                  Genre: ObjectId("652d7f3efd2bee0e91cb39a2"),
+                  Director: ObjectId("652d5b37c1c10235974385b6"),
+                  ImageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKzhAiUDi45xBViaOd65U5VDgx2QDCEyHCJ43Wk3D1lTrGWdB2',
+                  Featured: false
+                },
+                {
+                  _id: ObjectId("652d83e4fd2bee0e91cb39ab"),
+                  Title: 'The Others',
+                  Description: 'In 1945, immediately following the end of the Second World War, a woman who lives with her two photosensitive children on her darkened old family estate in the Channel Islands becomes convinced that the home is haunted.',
+                  Genre: ObjectId("652d7f3efd2bee0e91cb39a3"),
+                  Director: ObjectId("652d5b37c1c10235974385b7"),
+                  ImageURL: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQDRJ6gyA9B10i5eGHn1jGZu9PU4Cl9EgpvmBWbtmD5uWI3cBZs',
+                  Featured: false
+                },
+                {
+                  _id: ObjectId("652d83e4fd2bee0e91cb39ac"),
+                  Title: 'Amélie',
+                  Description: 'A whimsical and romantic French film that tells the story of a shy waitress who sets out to improve the lives of those around her in a charming neighborhood of Paris.',
+                  Genre: ObjectId("652d7f3efd2bee0e91cb39a4"),
+                  Director: ObjectId("652d5b37c1c10235974385b8"),
+                  ImageURL: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQDRJ6gyA9B10i5eGHn1jGZu9PU4Cl9EgpvmBWbtmD5uWI3cBZs',
+                  Featured: false
+                },
+                {
+                  _id: ObjectId("652d83e4fd2bee0e91cb39ad"),
+                  Title: 'The Fifth Element',
+                  Description: 'Korben Dallas, a cab driver, tries to secure four mystical stones and a mysterious fifth element that alone can defeat a cosmic evil force during an apocalyptic war.',
+                  Genre: ObjectId("652d7f3efd2bee0e91cb39a5"),
+                  Director: ObjectId("652d5b37c1c10235974385b9"),
+                  ImageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnHxC5rmn9c0DyXM5htwUrAuc5YRfclpFNVggYfpyHuGADDvpX',
+                  Featured: false
+                },
+                {
+                  _id: ObjectId("652d83e4fd2bee0e91cb39ae"),
+                  Title: 'Inception',
+                  Description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.',
+                  Genre: ObjectId("652d7f3efd2bee0e91cb39a2"),
+                  Director: ObjectId("652d5b37c1c10235974385ba"),
+                  ImageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnHxC5rmn9c0DyXM5htwUrAuc5YRfclpFNVggYfpyHuGADDvpX',
+                  Featured: false
+                },
+                {
+                  _id: ObjectId("652d83e4fd2bee0e91cb39af"),
+                  Title: 'Fucking Åmål',
+                  Description: 'A coming-of-age film about the romantic and personal struggles of two teenage girls in a small Swedish town.',
+                  Genre: ObjectId("652d7f3efd2bee0e91cb39a6"),
+                  Director: ObjectId("652d5b37c1c10235974385bb"),
+                  ImageURL: 'https://example.com/fucking-amal.jpg',
+                  Featured: true
+                },
+                {
+                  _id: ObjectId("652d83e4fd2bee0e91cb39b0"),
+                  Title: 'Star Wars: Episode V',
+                  Description: 'The Rebel Alliance battles the Galactic Empire as they seek to destroy the Death Star and confront the evil Darth Vader.',
+                  Genre: ObjectId("652d7f3efd2bee0e91cb39a5"),
+                  Director: ObjectId("652d5b37c1c10235974385bc"),
+                  ImageURL: 'https://example.com/star-wars-episode-v.jpg',
+                  Featured: false
+                },
+                {
+                  _id: ObjectId("652d83e4fd2bee0e91cb39b1"),
+                  Title: 'The Lion King',
+                  Description: "A classic Disney animated film that tells the story of a young lion prince's journey to reclaim his throne after the murder of his father.",
+                  Genre: ObjectId("652d7f3efd2bee0e91cb39a7"),
+                  Director: ObjectId("652d5b37c1c10235974385bd"),
+                  ImageURL: 'https://example.com/the-lion-king.jpg',
+                  Featured: false
+                },
+                {
+                  _id: ObjectId("652d83e4fd2bee0e91cb39b2"),
+                  Title: 'The Matrix Reloaded',
+                  Description: "Neo, Trinity, and Morpheus continue their struggle against the machines as they seek to free humanity from the Matrix. The prophecy of 'The One' unfolds, leading to a high-stakes battle in both the real world and the simulated reality of the Matrix.",
+                  Genre: ObjectId("652d7f3efd2bee0e91cb39a1"),
+                  Director: ObjectId("652d5b37c1c10235974385be"),
+                  ImageURL: 'https://example.com/the-matrix-reloaded.jpg',
+                  Featured: false
+                }
+              ]
+
+
+              db.movies.find( { Directors: "Luc Besson" } )
+
+
+              var movie2 = {
+                "Title": "The Matrix Reloaded",
+                "Description": "Neo, Trinity, and Morpheus continue their struggle against the machines as they seek to free humanity from the Matrix. The prophecy of 'The One' unfolds, leading to a high-stakes battle in both the real world and the simulated reality of the Matrix.",
+                "Genre": ObjectId("652d7f3efd2bee0e91cb39a1"),
+                "Director": ObjectId("652d5b37c1c10235974385be"),
+                "ImageURL": "https://example.com/the-matrix-reloaded.jpg",
+                "Featured": false
+            }
+
+
+            
+            
+            db.users.update ({Name: 'Ruby' }, {$push: {Favorite_Movies: ObjectId("652d83e4fd2bee0e91cb39a9")}})
+
+            db.movies.updateOne({Title:"The Matrix Reloaded"}, {$set: {Description: "In 'The Matrix Reloaded,' Neo, Trinity, and Morpheus fight to liberate humanity from the Matrix, with 'The One' prophecy driving a high-stakes battle in both the real world and the Matrix."}})
+
+            db.directors.update ({_Id:"652d5b37c1c10235974385be" }, {$push: {Bio: "Lana Wachowski is a renowned filmmaker best known for her groundbreaking work on movies like 'The Matrix Reloaded' and 'The Matrix Revolutions' (both released in 2003). She was born in Chicago and formed a close creative partnership with her sister Lilly.")}})
+            db.directors.update ({_Id:"652d5b37c1c10235974385be" }, {$push: {Bio: "            db.directors.update ({_Id:"652d5b37c1c10235974385be" }, {$push: {Bio: "Lana Wachowski is a renowned filmmaker best known for her groundbreaking work on movies like 'The Matrix Reloaded' and 'The Matrix Revolutions' (both released in 2003). She was born in Chicago and formed a close creative partnership with her sister Lilly.")}})")}})
