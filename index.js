@@ -1,14 +1,29 @@
+const mongoose = require("mongoose");
+const Models = require("./models.js");
+const Movies = Models.Movie;
+const Users = Models.User;
+
+mongoose.connect("mongodb://localhost:27017/myflix2DB", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
 const express = require("express");
 const morgan = require("morgan");
 const fs = require("fs");
 const path = require("path");
-const bodyParser = require("body-parser");
 const uuid = require("uuid");
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
   flags: "a",
 });
+
+app.use(morgan("combined", { stream: accessLogStream }));
+app.use(express.static("public"));
 
 let users = [
   {
@@ -42,11 +57,6 @@ let movies = [
     Featured: false,
   },
 ];
-
-// USE requests
-app.use(bodyParser.json());
-app.use(morgan("combined", { stream: accessLogStream }));
-app.use(express.static("public"));
 
 //GET // READ requests
 
@@ -91,16 +101,31 @@ app.get("/movies/directors/:directorName", (req, res) => {
 });
 
 //POST // CREATE requests
-app.post("/users", (req, res) => {
-  const newUser = req.body;
-  if (!newUser.name) {
-    const message = "Name is required";
-    res.status(400).send(message);
-  } else {
-    newUser.id = uuid.v4();
-    users.push(newUser);
-    res.status(201).json(newUser);
-  }
+app.post("/users", async (req, res) => {
+  await Users.findOne({ Username: req.body.Username })
+    .then((user) => {
+      if (user) {
+        return res.status(400).send(req.body.Username + "already exists");
+      } else {
+        Users.create({
+          Username: req.body.Username,
+          Password: req.body.Password,
+          Email: req.body.Email,
+          Birthday: req.body.Birthday,
+        })
+          .then((user) => {
+            res.status(201).json(user);
+          })
+          .catch((error) => {
+            console.error(error);
+            res.status(500).send("Error: " + error);
+          });
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Error: " + error);
+    });
 });
 
 //PUT // UPDATE requests
@@ -124,7 +149,9 @@ app.post("/users/:id/:movieTitle", (req, res) => {
 
   if (user) {
     user.favoriteMovies.push(movieTitle);
-    res.status(200).json(`${movieTitle} has been added to user ${id}'s favorite list`);
+    res
+      .status(200)
+      .json(`${movieTitle} has been added to user ${id}'s favorite list`);
   } else {
     res.status(400).send("no such movie found");
   }
