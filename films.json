@@ -699,13 +699,22 @@
               var movie2 = {
                 "Title": "The Matrix Reloaded",
                 "Description": "Neo, Trinity, and Morpheus continue their struggle against the machines as they seek to free humanity from the Matrix. The prophecy of 'The One' unfolds, leading to a high-stakes battle in both the real world and the simulated reality of the Matrix.",
-                "Genre": ObjectId("652d7f3efd2bee0e91cb39a1"),
-                "Director": ObjectId("652d5b37c1c10235974385be"),
+                "Genre": ObjectId("652d7f3efd2bee0e91cb39a5"),
+                "Director": ObjectId("652d5b37c1c10235974385b5"),
                 "ImageURL": "https://example.com/the-matrix-reloaded.jpg",
                 "Featured": false
             }
+            db.movies.insertOne(movie2)
 
-
+            var movie3 = {
+                "Title": 'The Matrix',
+                "Description": 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.',
+                "Genre": ObjectId("652d7f3efd2bee0e91cb39a5"),
+                "Director": ObjectId("652d5b37c1c10235974385b5"),
+                "ImageURL": 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS4jfQQt_0vCA4XSwGiWkffC32Tv2oajdWhaYHHVYylYGJ3v17Q',
+                "Featured": false
+              }
+            db.movies.insertOne(movie3)
             
             
             db.users.update ({Name: 'Ruby' }, {$push: {Favorite_Movies: ObjectId("652d83e4fd2bee0e91cb39a9")}})
@@ -713,4 +722,93 @@
             db.movies.updateOne({Title:"The Matrix Reloaded"}, {$set: {Description: "In 'The Matrix Reloaded,' Neo, Trinity, and Morpheus fight to liberate humanity from the Matrix, with 'The One' prophecy driving a high-stakes battle in both the real world and the Matrix."}})
 
             db.directors.update ({_Id:"652d5b37c1c10235974385be" }, {$push: {Bio: "Lana Wachowski is a renowned filmmaker best known for her groundbreaking work on movies like 'The Matrix Reloaded' and 'The Matrix Revolutions' (both released in 2003). She was born in Chicago and formed a close creative partnership with her sister Lilly.")}})
-            db.directors.update ({_Id:"652d5b37c1c10235974385be" }, {$push: {Bio: "            db.directors.update ({_Id:"652d5b37c1c10235974385be" }, {$push: {Bio: "Lana Wachowski is a renowned filmmaker best known for her groundbreaking work on movies like 'The Matrix Reloaded' and 'The Matrix Revolutions' (both released in 2003). She was born in Chicago and formed a close creative partnership with her sister Lilly.")}})")}})
+            
+            db.directors.update(
+            { _id: ObjectId("652d5b37c1c10235974385be") },
+            {
+              $set: {
+                Bio: "Lana Wachowski is a renowned filmmaker best known for her groundbreaking work on movies like 'The Matrix Reloaded' and 'The Matrix Revolutions' (both released in 2003). She was born in Chicago and formed a close creative partnership with her sister Lilly."
+              }
+            }
+          )
+
+          db.directors.update(
+  { _id: ObjectId("652d5b37c1c10235974385be") },
+  {
+    $set: {
+      Bio: "Lana Wachowski, along with her sister Lilly Wachowski, is known for groundbreaking movies such as 'The Matrix Reloaded' (2003) and 'The Matrix Revolutions' (2003). Born to mother Lynne, a nurse, and father Ron, a businessman of Polish descent, Lana Wachowski grew up in Chicago and formed a tight creative relationship with her sister Lilly."
+    }
+  }
+)
+
+db.movies.find({Genre:"652d7f3efd2bee0e91cb39a1" adventure, Director: ObjectId("652d5b37c1c10235974385be")})
+
+db.movies.find({
+    "Genre":ObjectId("652d7f3efd2bee0e91cb39a5"),
+})
+
+db.movies.find({
+    "Genre":ObjectId("652d7f3efd2bee0e91cb39a5"),
+    "Director": ObjectId("652d5b37c1c10235974385b5")
+})
+
+db.movies.updateOne(
+   { _id: ObjectId("652d9e0ffd2bee0e91cb39b9"), }, 
+   { $set: { "Genre": ObjectId("652d7f3efd2bee0e91cb39a5") } }
+)
+db.movies.updateOne(
+   { _id: ObjectId("652d9e0ffd2bee0e91cb39b9") },
+   { $set: { "Genre": ObjectId("652d7f3efd2bee0e91cb39a5") }
+}
+)
+
+db.movies.find({
+    "Director": ObjectId("652d5b37c1c10235974385b5")
+})
+
+db.user.deleteOne({name: "John"})
+
+db.users.deleteOne({Name: "John" });
+
+
+db.users.deleteMany({Name: 'Ruby' },{Favorite_Movies: [
+    ObjectId("652d83e4fd2bee0e91cb39ab"),
+      ObjectId("652d83e4fd2bee0e91cb39ac"),
+      ObjectId("652d83e4fd2bee0e91cb39a9")
+  ]);
+
+
+
+db.user.deleteMany([
+    ObjectId("652d83e4fd2bee0e91cb39ab"),
+    ObjectId("652d83e4fd2bee0e91cb39ac"),
+    ObjectId("652d83e4fd2bee0e91cb39aa")
+  ]);
+
+  db.users.insertOne({
+    Name: 'Alice',
+    Password: 'password123',
+    Email: 'alice@example.com',
+    Birthday: '1990-05-15',
+    Favorite_Movies: [
+      ObjectId("652dbc95fd2bee0e91cb39bb")
+    ]
+  })
+
+  db.users.insertOne({
+    Name: 'Bob',
+    Password: 'securepass',
+    Email: 'bob@example.com',
+    Birthday: '1985-11-25',
+    Favorite_Movies: [
+      ObjectId("652dbc9cfd2bee0e91cb39bc"),
+    ]
+  })
+
+  mongoexport -d cfDB -c movies -c directors -c genre -c users -o myflixdb.json
+
+
+mongoexport -d cfDB -c movies -o myflixdb_movies.json
+mongoexport -d cfDB -c directors -o myflixdb_directors.json
+mongoexport -d cfDB -c genre -o myflixdb_genre.json
+mongoexport -d cfDB -c users -o myflixdb_users.json
