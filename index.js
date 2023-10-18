@@ -111,7 +111,7 @@ app.get("/movies/directors/:Director", (req, res) => {
     })
     .catch((err) => {
       console.error(err);
-      res.status(200).send("Error: " + err);
+      res.status(500).send("Error: " + err);
     });
 });
 
@@ -212,27 +212,35 @@ app.post("/users/:Username/movies/:MovieID", async (req, res) => {
 });
 //DELETE
 //remove movies from users array
-app.delete("/users/:id/:movieTitle", (req, res) => {
-  const { id, movieTitle } = req.params;
-  let user = users.find((user) => user.id == id);
-  if (user) {
-    user.favoriteMovies = user.favoriteMovies.filter(
-      (title) => title !== movieTitle
-    );
-    res
-      .status(200)
-      .json(`${movieTitle} has been removed from user ${id}'s favorite list`);
-  } else {
-    res.status(404).send("Movie cant be found in user's list");
-  }
+// Remove a movie to a user's list of favorites
+app.delete("/users/:Username/movies/:MovieID", (req, res) => {
+  Users.findOneAndUpdate(
+    { Username: req.params.Username },
+    {
+      $pull: { FavoriteMovies: req.params.MovieID },
+    },
+    { new: true }
+  )
+    .then((updatedUser) => {
+      if (!updatedUser) {
+        return res.status(404).send("Error: User not found");
+      } else {
+        res.json(updatedUser);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Error: " + error);
+    });
 });
 
 //DELETE // delete user by id
-app.delete("/users/:Username", async (req, res) => {
-  await Users.findOneAndRemove({ Username: req.params.Username })
+// Remove a movie to a user's list of favorites
+app.delete("/users/:Username", (req, res) => {
+  Users.findOneAndRemove({ Username: req.params.Username })
     .then((user) => {
       if (!user) {
-        res.status(404).send(req.params.Username + " was not found");
+        res.status(404).send("User " + req.params.Username + " was not found");
       } else {
         res.status(200).send(req.params.Username + " was deleted.");
       }
@@ -241,6 +249,10 @@ app.delete("/users/:Username", async (req, res) => {
       console.error(err);
       res.status(500).send("Error: " + err);
     });
+});
+app.use((err, req, res, next) => {
+  console.log(err);
+  console.error(err.stack);
 });
 
 //listen for requests
