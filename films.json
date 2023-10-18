@@ -18,7 +18,7 @@
       "Title": "The Matrix",
       "Description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
       "Genre": {
-        "Name": "Action",
+        "Name": "Sci-Fi",
         "Description": "Action film is a film genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, rescues and frantic chases."
       },
       "Director": {
@@ -338,7 +338,7 @@
                 {
                     "Name": "Irvin Kershner",
                     "Bio": "Irvin Kershner was an American filmmaker known for directing the iconic 'Star Wars: Episode V - The Empire Strikes Back.'",
-                    "Birth": "April 29, 1923"
+                    "Birth": 1923.0
                 },
                 {
                     "Name": "Rob Minkoff",
@@ -352,63 +352,10 @@
                 }
             ]);
             
-            [
-                {
-                  _id: ObjectId("652d5cefc1c10235974385bf"),
-                  Name: 'Comedy',
-                  Description: 'Is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter.'
-                },
-                {
-                  _id: ObjectId("652d5cefc1c10235974385c0"),
-                  Name: 'Action',
-                  Description: 'Action film is a genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, rescues and frantic chases.'
-                },
-                {
-                  _id: ObjectId("652d5cefc1c10235974385c1"),
-                  Name: 'Thriller',
-                  Description: 'A thriller is a type of mystery with a few key differences. As its name suggests, thrillers tend to be action-packed, page-turners with moments full of tension, anxiety, and fear. Without fail, they are plot-driven stories with plenty of plot twists.'
-                },
-                {
-                  _id: ObjectId("652d5cefc1c10235974385c2"),
-                  Name: 'Horror',
-                  Description: 'Horror is a genre of literature, film, and television that is meant to scare, startle, shock, and even repulse audiences. The key focus of a horror novel, horror film, or horror TV show is to elicit a sense of dread in the reader through frightening images, themes, and situations.'
-                },
-                {
-                  _id: ObjectId("652d5cefc1c10235974385c3"),
-                  Name: 'Romantic Comedy',
-                  Description: 'A genre that combines elements of romance and humor.'
-                },
-                {
-                  _id: ObjectId("652d5cefc1c10235974385c4"),
-                  Name: 'Sci-Fi',
-                  Description: 'A genre that explores futuristic and speculative concepts.'
-                },
-                {
-                  _id: ObjectId("652d5cefc1c10235974385c5"),
-                  Name: 'Drama',
-                  Description: 'A genre that focuses on realistic storytelling and emotional depth.'
-                },
-                {
-                  _id: ObjectId("652d5cefc1c10235974385c6"),
-                  Name: 'Animation',
-                  Description: 'A genre that uses artistic techniques to create animated visuals.'
-                }
-              ]
-
-
-
-
-
-
-
             db.genre.insertMany([      
                 {
                     "Name": "Comedy",
                     "Description": "Is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter."
-                },
-                {
-                    "Name": "Action",
-                    "Description": "Action film is a genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, rescues and frantic chases."
                 },
                 {
                     "Name": "Thriller",
@@ -443,56 +390,62 @@
             
             db.users.insertMany([
                 {
-                    "Name": "Tommy00",
-                    "Password": "xxx",
-                    "Email": "tommy12@gmail.com",
-                    "Birthday": "1973-06-11",
-                    "Favorite_Movies": [
-                        ObjectId("652d83e4fd2bee0e91cb39aa"),
-                        ObjectId("652d83e4fd2bee0e91cb39a9")
-                    ]
+                  Username: 'Tommy00',
+                  Password: 'xxx',
+                  Email: 'tommy12@gmail.com',
+                  Birthday: new Date('1973-06-11'),
+                  Favorite_Movies: [
+                    ObjectId("652d83e4fd2bee0e91cb39aa"),
+                    ObjectId("652d83e4fd2bee0e91cb39a9")
+                  ]
                 },
                 {
-                    "Name": "Robert",
-                    "Password": "xxx",
-                    "Email": "robert14@gmail.com",
-                    "Birthday": "1993-09-12",
-                    "Favorite_Movies": [
-                        ObjectId("652d83e4fd2bee0e91cb39a8"),
-                        ObjectId("652d83e4fd2bee0e91cb39ae")
-                    ]
+                  Username: 'Robert',
+                  Password: 'xxx',
+                  Email: 'robert14@gmail.com',
+                  Birthday: new Date('1993-09-12'),
+                  Favorite_Movies: [
+                    ObjectId("652d83e4fd2bee0e91cb39a8"),
+                    ObjectId("652d83e4fd2bee0e91cb39ae")
+                  ]
                 },
                 {
-                    "Name": "Eliza",
-                    "Password": "xxx",
-                    "Email": "eliza11@gmail.com",
-                    "Birthday": "1982-01-08",
-                    "Favorite_Movies": [
-                        ObjectId("652d83e4fd2bee0e91cb39ab"),
-                        ObjectId("652d83e4fd2bee0e91cb39ac")
-                    ]
+                  Username: 'Eliza',
+                  Password: 'xxx',
+                  Email: 'eliza11@gmail.com',
+                  Birthday: new Date('1982-01-08'),
+                  Favorite_Movies: [
+                    ObjectId("652d83e4fd2bee0e91cb39ab"),
+                    ObjectId("652d83e4fd2bee0e91cb39ac"),
+                    ObjectId("652d83e4fd2bee0e91cb39aa")
+                  ]
                 },
                 {
-                    "Name": "Ruby",
-                    "Password": "xxx",
-                    "Email": "ruby12@hotmail.com",
-                    "Birthday": "1983-03-01",
-                    "Favorite_Movies": [
-                        ObjectId("652d83e4fd2bee0e91cb39ab"),
-                        ObjectId("652d83e4fd2bee0e91cb39ac")
-                    ]
+                  Username: 'Ruby',
+                  Password: 'xxx',
+                  Email: 'ruby12@hotmail.com',
+                  Birthday: new Date('1983-03-01'),
+                  Favorite_Movies: [
+                    ObjectId("652d83e4fd2bee0e91cb39ab"),
+                    ObjectId("652d83e4fd2bee0e91cb39ac"),
+                    ObjectId("652d83e4fd2bee0e91cb39a9")
+                  ]
                 },
                 {
-                    "Name": "John",
-                    "Password": "xxx",
-                    "Email": "john@example.com",
-                    "Birthday": "1990-12-15",
-                    "Favorite_Movies": [
-                        ObjectId("652d83e4fd2bee0e91cb39aa"),
-                        ObjectId("652d83e4fd2bee0e91cb39b0")
-                    ]
+                  Username: 'Bob',
+                  Password: 'securepass',
+                  Email: 'bob@example.com',
+                  Birthday: new Date('1985-11-25'),
+                  Favorite_Movies: [ObjectId("652dbc9cfd2bee0e91cb39bc")]
+                },
+                {
+                  Username: 'Alice',
+                  Password: 'password123',
+                  Email: 'alice@example.com',
+                  Birthday: new Date('1990-05-15'),
+                  Favorite_Movies: [ObjectId("652dbc95fd2bee0e91cb39bb")]
                 }
-            ]);
+              ]);
             
 
 
@@ -591,106 +544,123 @@
 
 
             [
-                {
-                  _id: ObjectId("652d83e4fd2bee0e91cb39a8"),
-                  Title: 'The French Dispatch',
-                  Description: "A love letter to journalists set in an outpost of an American newspaper in a fictional twentieth-century French city that brings to life a collection of stories published in 'The French Dispatch Magazine'.",
-                  Genre: ObjectId("652d7f3efd2bee0e91cb39a0"),
-                  Director: ObjectId("652d5b37c1c10235974385b4"),
-                  ImageURL: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSHZ28VU-SMkaUGIGAT_RsKRFI1sd3wSEftFmPxE0nEA_ex5dzM',
-                  Featured: false
+              {
+                _id: ObjectId("652d83e4fd2bee0e91cb39a8"),
+                Title: 'The French Dispatch',
+                Description: "A love letter to journalists set in an outpost of an American newspaper in a fictional twentieth-century French city that brings to life a collection of stories published in 'The French Dispatch Magazine'.",
+                Genre: ObjectId("652d7f3efd2bee0e91cb39a0"),
+                Director: ObjectId("652d5b37c1c10235974385b4"),
+                ImageURL: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSHZ28VU-SMkaUGIGAT_RsKRFI1sd3wSEftFmPxE0nEA_ex5dzM',
+                Featured: false
+              },
+              {
+                _id: ObjectId("652d83e4fd2bee0e91cb39aa"),
+                Title: 'The Tourist',
+                Description: 'Revolves around Frank, an American tourist visiting Italy to mend a broken heart. Elise is an extraordinary woman who deliberately crosses his path.',
+                Genre: ObjectId("652d7f3efd2bee0e91cb39a2"),
+                Director: ObjectId("652d5b37c1c10235974385b6"),
+                ImageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKzhAiUDi45xBViaOd65U5VDgx2QDCEyHCJ43Wk3D1lTrGWdB2',
+                Featured: false
+              },
+              {
+                _id: ObjectId("652d83e4fd2bee0e91cb39ab"),
+                Title: 'The Others',
+                Description: 'In 1945, immediately following the end of the Second World War, a woman who lives with her two photosensitive children on her darkened old family estate in the Channel Islands becomes convinced that the home is haunted.',
+                Genre: ObjectId("652d7f3efd2bee0e91cb39a3"),
+                Director: ObjectId("652d5b37c1c10235974385b7"),
+                ImageURL: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQDRJ6gyA9B10i5eGHn1jGZu9PU4Cl9EgpvmBWbtmD5uWI3cBZs',
+                Featured: false
+              },
+              {
+                _id: ObjectId("652d83e4fd2bee0e91cb39ac"),
+                Title: 'Amélie',
+                Description: 'A whimsical and romantic French film that tells the story of a shy waitress who sets out to improve the lives of those around her in a charming neighborhood of Paris.',
+                Genre: ObjectId("652d7f3efd2bee0e91cb39a4"),
+                Director: ObjectId("652d5b37c1c10235974385b8"),
+                ImageURL: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQDRJ6gyA9B10i5eGHn1jGZu9PU4Cl9EgpvmBWbtmD5uWI3cBZs',
+                Featured: false
+              },
+              {
+                _id: ObjectId("652d83e4fd2bee0e91cb39ad"),
+                Title: 'The Fifth Element',
+                Description: 'Korben Dallas, a cab driver, tries to secure four mystical stones and a mysterious fifth element that alone can defeat a cosmic evil force during an apocalyptic war.',
+                Genre: ObjectId("652d7f3efd2bee0e91cb39a5"),
+                Director: ObjectId("652d5b37c1c10235974385b9"),
+                ImageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnHxC5rmn9c0DyXM5htwUrAuc5YRfclpFNVggYfpyHuGADDvpX',
+                Featured: false
+              },
+              {
+                _id: ObjectId("652d83e4fd2bee0e91cb39ae"),
+                Title: 'Inception',
+                Description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.',
+                Genre: ObjectId("652d7f3efd2bee0e91cb39a2"),
+                Director: ObjectId("652d5b37c1c10235974385ba"),
+                ImageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnHxC5rmn9c0DyXM5htwUrAuc5YRfclpFNVggYfpyHuGADDvpX',
+                Featured: false
+              },
+              {
+                _id: ObjectId("652d83e4fd2bee0e91cb39af"),
+                Title: 'Fucking Åmål',
+                Description: 'A coming-of-age film about the romantic and personal struggles of two teenage girls in a small Swedish town.',
+                Genre: ObjectId("652d7f3efd2bee0e91cb39a6"),
+                Director: ObjectId("652d5b37c1c10235974385bb"),
+                ImageURL: 'https://example.com/fucking-amal.jpg',
+                Featured: true
+              },
+              {
+                _id: ObjectId("652d83e4fd2bee0e91cb39b0"),
+                Title: 'Star Wars: Episode V',
+                Description: 'The Rebel Alliance battles the Galactic Empire as they seek to destroy the Death Star and confront the evil Darth Vader.',
+                Genre: ObjectId("652d7f3efd2bee0e91cb39a5"),
+                Director: ObjectId("652d5b37c1c10235974385bc"),
+                ImageURL: 'https://example.com/star-wars-episode-v.jpg',
+                Featured: false
+              },
+              {
+                _id: ObjectId("652d83e4fd2bee0e91cb39b1"),
+                Title: 'The Lion King',
+                Description: "A classic Disney animated film that tells the story of a young lion prince's journey to reclaim his throne after the murder of his father.",
+                Genre: ObjectId("652d7f3efd2bee0e91cb39a7"),
+                Director: ObjectId("652d5b37c1c10235974385bd"),
+                ImageURL: 'https://example.com/the-lion-king.jpg',
+                Featured: false
+              },
+              {
+                _id: ObjectId("652d9c59fd2bee0e91cb39b8"),
+                Title: 'Silence of the Lambs',
+                Description: 'A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer.',
+                Genre: {
+                  Name: 'Thriller',
+                  Description: 'Thriller film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience.'
                 },
-                {
-                  _id: ObjectId("652d83e4fd2bee0e91cb39a9"),
-                  Title: 'The Matrix',
-                  Description: 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.',
-                  Genre: ObjectId("652d7f3efd2bee0e91cb39a5"),
-                  Director: ObjectId("652d5b37c1c10235974385b5"),
-                  ImageURL: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS4jfQQt_0vCA4XSwGiWkffC32Tv2oajdWhaYHHVYylYGJ3v17Q',
-                  Featured: false
+                Director: {
+                  Name: 'Jonathan Demme',
+                  Bio: 'Robert Jonathan Demme was an American director, producer, and screenwriter.',
+                  Birth: '1944',
+                  Death: '2017'
                 },
-                {
-                  _id: ObjectId("652d83e4fd2bee0e91cb39aa"),
-                  Title: 'The Tourist',
-                  Description: 'Revolves around Frank, an American tourist visiting Italy to mend a broken heart. Elise is an extraordinary woman who deliberately crosses his path.',
-                  Genre: ObjectId("652d7f3efd2bee0e91cb39a2"),
-                  Director: ObjectId("652d5b37c1c10235974385b6"),
-                  ImageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKzhAiUDi45xBViaOd65U5VDgx2QDCEyHCJ43Wk3D1lTrGWdB2',
-                  Featured: false
-                },
-                {
-                  _id: ObjectId("652d83e4fd2bee0e91cb39ab"),
-                  Title: 'The Others',
-                  Description: 'In 1945, immediately following the end of the Second World War, a woman who lives with her two photosensitive children on her darkened old family estate in the Channel Islands becomes convinced that the home is haunted.',
-                  Genre: ObjectId("652d7f3efd2bee0e91cb39a3"),
-                  Director: ObjectId("652d5b37c1c10235974385b7"),
-                  ImageURL: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQDRJ6gyA9B10i5eGHn1jGZu9PU4Cl9EgpvmBWbtmD5uWI3cBZs',
-                  Featured: false
-                },
-                {
-                  _id: ObjectId("652d83e4fd2bee0e91cb39ac"),
-                  Title: 'Amélie',
-                  Description: 'A whimsical and romantic French film that tells the story of a shy waitress who sets out to improve the lives of those around her in a charming neighborhood of Paris.',
-                  Genre: ObjectId("652d7f3efd2bee0e91cb39a4"),
-                  Director: ObjectId("652d5b37c1c10235974385b8"),
-                  ImageURL: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQDRJ6gyA9B10i5eGHn1jGZu9PU4Cl9EgpvmBWbtmD5uWI3cBZs',
-                  Featured: false
-                },
-                {
-                  _id: ObjectId("652d83e4fd2bee0e91cb39ad"),
-                  Title: 'The Fifth Element',
-                  Description: 'Korben Dallas, a cab driver, tries to secure four mystical stones and a mysterious fifth element that alone can defeat a cosmic evil force during an apocalyptic war.',
-                  Genre: ObjectId("652d7f3efd2bee0e91cb39a5"),
-                  Director: ObjectId("652d5b37c1c10235974385b9"),
-                  ImageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnHxC5rmn9c0DyXM5htwUrAuc5YRfclpFNVggYfpyHuGADDvpX',
-                  Featured: false
-                },
-                {
-                  _id: ObjectId("652d83e4fd2bee0e91cb39ae"),
-                  Title: 'Inception',
-                  Description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.',
-                  Genre: ObjectId("652d7f3efd2bee0e91cb39a2"),
-                  Director: ObjectId("652d5b37c1c10235974385ba"),
-                  ImageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnHxC5rmn9c0DyXM5htwUrAuc5YRfclpFNVggYfpyHuGADDvpX',
-                  Featured: false
-                },
-                {
-                  _id: ObjectId("652d83e4fd2bee0e91cb39af"),
-                  Title: 'Fucking Åmål',
-                  Description: 'A coming-of-age film about the romantic and personal struggles of two teenage girls in a small Swedish town.',
-                  Genre: ObjectId("652d7f3efd2bee0e91cb39a6"),
-                  Director: ObjectId("652d5b37c1c10235974385bb"),
-                  ImageURL: 'https://example.com/fucking-amal.jpg',
-                  Featured: true
-                },
-                {
-                  _id: ObjectId("652d83e4fd2bee0e91cb39b0"),
-                  Title: 'Star Wars: Episode V',
-                  Description: 'The Rebel Alliance battles the Galactic Empire as they seek to destroy the Death Star and confront the evil Darth Vader.',
-                  Genre: ObjectId("652d7f3efd2bee0e91cb39a5"),
-                  Director: ObjectId("652d5b37c1c10235974385bc"),
-                  ImageURL: 'https://example.com/star-wars-episode-v.jpg',
-                  Featured: false
-                },
-                {
-                  _id: ObjectId("652d83e4fd2bee0e91cb39b1"),
-                  Title: 'The Lion King',
-                  Description: "A classic Disney animated film that tells the story of a young lion prince's journey to reclaim his throne after the murder of his father.",
-                  Genre: ObjectId("652d7f3efd2bee0e91cb39a7"),
-                  Director: ObjectId("652d5b37c1c10235974385bd"),
-                  ImageURL: 'https://example.com/the-lion-king.jpg',
-                  Featured: false
-                },
-                {
-                  _id: ObjectId("652d83e4fd2bee0e91cb39b2"),
-                  Title: 'The Matrix Reloaded',
-                  Description: "Neo, Trinity, and Morpheus continue their struggle against the machines as they seek to free humanity from the Matrix. The prophecy of 'The One' unfolds, leading to a high-stakes battle in both the real world and the simulated reality of the Matrix.",
-                  Genre: ObjectId("652d7f3efd2bee0e91cb39a1"),
-                  Director: ObjectId("652d5b37c1c10235974385be"),
-                  ImageURL: 'https://example.com/the-matrix-reloaded.jpg',
-                  Featured: false
-                }
-              ]
+                ImagePath: 'silenceofthelambs.png',
+                Featured: true
+              },
+              {
+                _id: ObjectId("652dbc95fd2bee0e91cb39bb"),
+                Title: 'The Matrix Reloaded',
+                Description: "Neo, Trinity, and Morpheus continue their struggle against the machines as they seek to free humanity from the Matrix. The prophecy of 'The One' unfolds, leading to a high-stakes battle in both the real world and the simulated reality of the Matrix.",
+                Genre: ObjectId("652d7f3efd2bee0e91cb39a5"),
+                Director: ObjectId("652d5b37c1c10235974385b5"),
+                ImageURL: 'https://example.com/the-matrix-reloaded.jpg',
+                Featured: false
+              },
+              {
+                _id: ObjectId("652dbc9cfd2bee0e91cb39bc"),
+                Title: 'The Matrix',
+                Description: 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.',
+                Genre: ObjectId("652d7f3efd2bee0e91cb39a5"),
+                Director: ObjectId("652d5b37c1c10235974385b5"),
+                ImageURL: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS4jfQQt_0vCA4XSwGiWkffC32Tv2oajdWhaYHHVYylYGJ3v17Q',
+                Featured: false
+              }
+            ]
 
 
               db.movies.find( { Directors: "Luc Besson" } )
@@ -812,3 +782,8 @@ mongoexport -d cfDB -c movies -o myflixdb_movies.json
 mongoexport -d cfDB -c directors -o myflixdb_directors.json
 mongoexport -d cfDB -c genre -o myflixdb_genre.json
 mongoexport -d cfDB -c users -o myflixdb_users.json
+
+mongodump --db cfDB
+
+
+
