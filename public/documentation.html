@@ -42,39 +42,79 @@
       <!-- single movie by title  -->
       <tr>
         <td>Get data about a single movie by title</td>
-        <td>/movies/[title]</td>
+        <td>/movies/<b>[movieTitle]</b></td>
         <td>GET</td>
         <td>none</td>
         <td>
           A JSON object holding data about a single movie, containing
-          description, genre, director, image URL, whether it’s featured or not.
-          Example:
+          description, genre, director, image URL, whether it's featured or not.
           <br />
           <code>
-            { "Title": "The French Dispatch", "Description": "A love letter to
-            journalists...", "Genre": { "Name": "Comedy", "Description": "Is a
-            genre of fiction that consists..." } "Director": { "Name": "Wes
-            Anderson", "Bio": "Wesley Wales Anderson was born...", "Birth": 1969
-            }, "ImageURL": "www.google.com", "Featured": false }
+            { <br />
+            "Genre": "652d7f3efd2bee0e91cb39a0", <br />
+            "Director": "652d5b37c1c10235974385b4",<br />
+            "Actors": [],<br />
+            "_id": "652d83e4fd2bee0e91cb39a8",<br />
+            "Title": "The French Dispatch",<br />
+            "Description": "A love letter to journalists set in an outpost of an
+            American newspaper in a fictional twentieth-century French city that
+            brings to life a collection of stories published in 'The French
+            Dispatch Magazine'.",<br />
+            "ImageURL":
+            "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSHZ28VU-SMkaUGIGAT_RsKRFI1sd3wSEftFmPxE0nEA_ex5dzM",<br />
+            "Featured": false<br />
+            }
           </code>
           <br />
         </td>
+      </tr>
+
+      <!-- Get all users   -->
+
+      <tr>
+        <td>Get a list of all users</td>
+        <td>/users</td>
+        <td>GET</td>
+        <td>none</td>
+        <td>A JSON object holding an array with all users.</td>
       </tr>
 
       <!-- genre  -->
 
       <tr>
         <td>Get data about genre</td>
-        <td>/movies/genre/:genreName</td>
+        <td>/movies/genre/<b>[genreName]</b></td>
         <td>GET</td>
         <td>none</td>
         <td>
-          A JSON object holding data about a genre containing name and
-          description properties. Example:
+          A JSON array holding objects with all the movies that belong to the
+          searched genre:
           <br />
           <code>
-            "Genre": { "Name": "Triller", "Description": "Is a genre of fiction
-            that ..." }
+            [<br />
+            {<br />
+            "Genre": {<br />
+            "Name": "Thriller",<br />
+            "Description": "Thriller film, also known as suspense film or
+            suspense thriller, is a broad film genre that involves excitement
+            and suspense in the audience."<br />
+            },<br />
+            "Director": {<br />
+            "Name": "Jonathan Demme",<br />
+            "Bio": "Robert Jonathan Demme was an American director, producer,
+            and screenwriter.",<br />
+            "Birth": "1944",<br />
+            "Death": "2017"<br />
+            }, "Actors": [],<br />
+            "_id": "652d9c59fd2bee0e91cb39b8",<br />
+            "Title": "Silence of the Lambs",<br />
+            "Description": "A young FBI cadet must receive the help of an
+            incarcerated and manipulative cannibal killer to help catch another
+            serial killer.",<br />
+            "ImagePath": "silenceofthelambs.png",<br />
+            "Featured": true<br />
+            }<br />
+            ]<br />
           </code>
         </td>
       </tr>
@@ -82,11 +122,37 @@
       <!-- director  -->
       <tr>
         <td>Get data about a director by name</td>
-        <td>/movies/directors/:directorName</td>
+        <td>/movies/directors/<b>[directorName]</b></td>
         <td>GET</td>
         <td>none</td>
         <td>
-          A JSON object holding an array with directors name bio and birth.
+          A JSON object holding data with all the movies that belong to the
+          searched director:
+          <br />
+          <code>
+            {<br />
+            "Genre": {<br />
+            "Name": "Thriller",<br />
+            "Description": "Thriller film, also known as suspense film or
+            suspense thriller, is a broad film genre that involves excitement
+            and suspense in the audience."<br />
+            },<br />
+            "Director": {<br />
+            "Name": "Jonathan Demme",<br />
+            "Bio": "Robert Jonathan Demme was an American director, producer,
+            and screenwriter.",<br />
+            "Birth": "1944",<br />
+            "Death": "2017"<br />
+            }, "Actors": [],<br />
+            "_id": "652d9c59fd2bee0e91cb39b8",<br />
+            "Title": "Silence of the Lambs",<br />
+            "Description": "A young FBI cadet must receive the help of an
+            incarcerated and manipulative cannibal killer to help catch another
+            serial killer.",<br />
+            "ImagePath": "silenceofthelambs.png",<br />
+            "Featured": true<br />
+            }
+          </code>
         </td>
       </tr>
 
@@ -97,52 +163,94 @@
         <td>/users</td>
         <td>POST</td>
         <td>
-          A JSON object holding user data with structure:
-          <br />
-          <code> { "name": "Bobby", "favoriteMovies":[] } </code>
-        </td>
-        <td>
-          A JSON object holding user data plus an ID:
+          A JSON object holding user data with 3 requierd fields [Username]
+          [Password] [Email] and last optional field [Birthday]:
           <br />
           <code>
-            { "name": "Bobby", "favoriteMovies": [], "id":
-            "9326d13a-bb48-417c-b209-0630fc69e9a9" }
+            {<br />
+            "Username": "User2",<br />
+            "Password": "test100000",<br />
+            "Email": "bobby1@hotmail.com",<br />
+            "Birthday": "1983-01-02"<br />
+            }
+          </code>
+        </td>
+        <td>
+          A JSON object holding all the user data including the generated ID:
+          <br />
+          <code>
+            {<br />
+            "Username": "User2",<br />
+            "Password": "test100000",<br />
+            "Email": "bobby1@hotmail.com",<br />
+            "Birthday": "1983-01-02T23:00:00.000Z",<br />
+            "FavoriteMovies": [],<br />
+            <b> "_id": "652fc200c7198aac5f951692"</b>,<br />
+            "__v": 0<br />
+            }
           </code>
         </td>
       </tr>
 
       <!-- allow users update details   -->
       <td>Update user username</td>
-      <td>/users/:id</td>
+      <td>/users/<b>[currentUsername]</b></td>
       <td>PUT</td>
       <td>
-        A JSON object holding user data with structure:
-        <br />
-        <code> { "name": "Lotte updated name", "favoriteMovies": [] } </code>
-      </td>
-      <td>
-        A JSON object holding user data plus an ID:
+        A JSON object holding user data with 3 requierd fields [Username]
+        [Password] [Email].
         <br />
         <code>
-          { "id": 1, "name": "Lotte updated name", "favoriteMovies": [] }
+          {<br />
+          <b>"Username": "User3",</b><br />
+          "Password": "test100000",<br />
+          "Email": "bobby1@hotmail.com"<br />
+          }
+        </code>
+      </td>
+      <td>
+        An updated JSON object with user data and the updated username:
+        <br />
+        <code>
+          {<br />
+          "_id": "652fc200c7198aac5f951692",<br />
+          "Username": "User3",<br />
+          "Password": "test100000",<br />
+          "Email": "bobby1@hotmail.com",<br />
+          "Birthday": "1983-01-02T00:00:00.000Z",<br />
+          "FavoriteMovies": [ "652d83e4fd2bee0e91cb39ac" ],<br />
+          "__v": 0<br />
+          }
         </code>
       </td>
 
       <!-- allow users add favorite movies to list   -->
       <tr>
         <td>Add a movie to user favorite list</td>
-        <td>/users/:id/:movieTitle</td>
+        <td>users/<b>[username]</b>/movies/<b>[movieID]</b></td>
         <td>POST</td>
         <td>None</td>
         <td>
-          A text message indicating whether a movie was successfully added to
-          the favorite list.
+          An updated JSON object that includes user data with the addition of
+          the movie to the user's favoriteMovies array:
+          <br />
+          <code>
+            {<br />
+            "_id": "652fc200c7198aac5f951692",<br />
+            "Username": "User2",<br />
+            "Password": "test100000",<br />
+            "Email": "bobby1@hotmail.com",<br />
+            "Birthday": "1983-01-02T23:00:00.000Z",<br />
+            <b>"FavoriteMovies": [ "652d83e4fd2bee0e91cb39ac" ]</b>,<br />
+            "__v": 0<br />
+            }<br />
+          </code>
         </td>
       </tr>
       <!-- allow users remove favorite movies to list   -->
       <tr>
         <td>Remove a movie from user favorite list</td>
-        <td>/users/:id/:movieTitle</td>
+        <td>users/<b>[username]</b>/movies/<b>[movieID]</b></td>
         <td>DELETE</td>
         <td>None</td>
         <td>
@@ -153,11 +261,11 @@
       <!-- allow users deregister   -->
       <tr>
         <td>Delete user registration</td>
-        <td>/users/:id</td>
+        <td>/users/<b>[username]</b></td>
         <td>DELETE</td>
         <td>None</td>
         <td>
-          A text message indicating whether a user[id] was successfully removed.
+          A text message indicating whether [username] was successfully deleted.
         </td>
       </tr>
     </table>
