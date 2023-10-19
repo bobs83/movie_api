@@ -16,35 +16,24 @@ mongoose.connect("mongodb://localhost:27017/myflix2DB", {
 });
 
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 let auth = require("./auth")(app);
 const passport = require("passport");
-require("./passport.js");
+require("./passport");
 
+// Log URL request data to log.txt text file
 const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
   flags: "a",
 });
-
 app.use(morgan("combined", { stream: accessLogStream }));
 app.use(express.static("public"));
-
-let users = [
-  {
-    id: 1,
-    name: "Lotte",
-    favoriteMovies: [],
-  },
-  {
-    id: 2,
-    name: "Sven",
-    favoriteMovies: ["The French Dispatch"],
-  },
-];
+app.get("/", (req, res) => {
+  res.send("This is the default route endpoint");
+});
 
 //GET // READ requests
-
 app.get("/", (req, res) => {
   res.send("Welcome to myFlix!");
 });
