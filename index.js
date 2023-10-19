@@ -1,3 +1,10 @@
+const express = require("express");
+const bodyParser = require("body-parser");
+const morgan = require("morgan");
+const fs = require("fs");
+const path = require("path");
+const uuid = require("uuid");
+
 const mongoose = require("mongoose");
 const Models = require("./models.js");
 const Movies = Models.Movie;
@@ -7,13 +14,6 @@ mongoose.connect("mongodb://localhost:27017/myflix2DB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
-const express = require("express");
-const morgan = require("morgan");
-const fs = require("fs");
-const path = require("path");
-const bodyParser = require("body-parser");
-const uuid = require("uuid");
 
 const app = express();
 app.use(express.json());
