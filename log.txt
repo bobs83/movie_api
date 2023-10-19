@@ -614,3 +614,7 @@
 ::1 - - [19/Oct/2023:14:13:56 +0000] "GET /movies HTTP/1.1" 401 - "-" "PostmanRuntime/7.33.0"
 ::1 - - [19/Oct/2023:14:28:35 +0000] "POST /users/ HTTP/1.1" 401 - "-" "PostmanRuntime/7.33.0"
 ::1 - - [19/Oct/2023:14:28:53 +0000] "POST /users/?Username=Bobby100&Password=1234 HTTP/1.1" 401 - "-" "PostmanRuntime/7.33.0"
+::1 - - [19/Oct/2023:16:15:49 +0000] "POST /users/?Username=Bobby100&Password=1234 HTTP/1.1" 201 185 "-" "PostmanRuntime/7.33.0"
+::1 - - [19/Oct/2023:16:16:04 +0000] "POST /users/?Username=Bobby100&Password=1234 HTTP/1.1" 400 23 "-" "PostmanRuntime/7.33.0"
+::1 - - [19/Oct/2023:16:16:18 +0000] "POST /users/?Username=Bobby200&Password=1234 HTTP/1.1" 400 23 "-" "PostmanRuntime/7.33.0"
+::1 - - [19/Oct/2023:16:16:28 +0000] "POST /users/?Username=Bobby200&Password=1234 HTTP/1.1" 201 185 "-" "PostmanRuntime/7.33.0"

@@ -16,19 +16,34 @@ mongoose.connect("mongodb://localhost:27017/myflix2DB", {
 });
 
 const app = express();
+// Server side validation library
+const { check, validationResult } = require("express-validator");
+
+const bcrypt = require("bcrypt");
+
+// Set which http oragins are allowed to access API
+const cors = require("cors");
+app.use(cors());
+
+let auth = require("./auth")(app);
+const passport = require("passport");
+require("./passport");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
-let auth = require("./auth")(app);
-const passport = require("passport");
-require("./passport.js");
 
+// Log URL request data to log.txt text file
 const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
   flags: "a",
 });
-
 app.use(morgan("combined", { stream: accessLogStream }));
+
 app.use(express.static("public"));
+
+app.get("/", (req, res) => {
+  res.send("This is the default route endpoint");
+});
 
 let users = [
   {
@@ -170,18 +185,17 @@ app.get(
 
 //POST // CREATE requests
 //Add a user
-app.post(
-  "/users",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    Users.findOne({ Username: req.body.Username })
-      .then((user) => {
-        if (user) {
-          return res.status(400).send(req.body.Username + " already exists");
-        }
+app.post("/users", async (req, res) => {
+  let hashedPassword = Users.hashPassword(req.body.Password);
+  await Users.findOne({ Username: req.body.Username }) // Search to see if a user with the requested username already exists
+    .then((user) => {
+      if (user) {
+        //If the user is found, send a response that it already exists
+        return res.status(400).send(req.body.Username + " already exists");
+      } else {
         Users.create({
           Username: req.body.Username,
-          Password: req.body.Password,
+          Password: hashedPassword,
           Email: req.body.Email,
           Birthday: req.body.Birthday,
         })
@@ -192,13 +206,13 @@ app.post(
             console.error(error);
             res.status(500).send("Error: " + error);
           });
-      })
-      .catch((error) => {
-        console.error(error);
-        res.status(500).send("Error: " + error);
-      });
-  }
-);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Error: " + error);
+    });
+});
 
 //PUT // UPDATE requests
 //Update a user's info, by username
