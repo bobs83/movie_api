@@ -41,23 +41,6 @@ app.use(morgan("combined", { stream: accessLogStream }));
 
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  res.send("This is the default route endpoint");
-});
-
-let users = [
-  {
-    id: 1,
-    name: "Lotte",
-    favoriteMovies: [],
-  },
-  {
-    id: 2,
-    name: "Sven",
-    favoriteMovies: ["The French Dispatch"],
-  },
-];
-
 //GET // READ requests
 
 app.get("/", (req, res) => {
@@ -68,10 +51,61 @@ app.get("/", (req, res) => {
 app.get(
   "/movies",
   passport.authenticate("jwt", { session: false }),
-  async (req, res) => {
-    await Movies.find()
+  (req, res) => {
+    Movies.find()
       .then((movies) => {
-        res.status(201).json(movies);
+        res.status(200).json(movies);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      });
+  }
+);
+
+app.post(
+  "/users",
+  [
+    check(
+      "Username",
+      "Username must be at least 5 characters in length"
+    ).isLength({ min: 5 }),
+    check(
+      "Username",
+      "Username contains non alphanumeric characters - not allowed."
+    ).isAlphanumeric(),
+    check("Password", "Password is empty").not().isEmpty(),
+    check("Email", "Email does not appear to be valid").isEmail(),
+  ],
+  (req, res) => {
+    // check the validation object for errors
+    let errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(422).json({ errors: errors.array() });
+    }
+
+    let hashedPassword = Users.hashPassword(req.body.Password);
+
+    // Search to see if a user with the requested username already exists
+    Users.findOne({ Username: req.body.Username })
+      .then((user) => {
+        //If the user is found, send a response that it already exists
+        if (user) {
+          return res.status(400).send(req.body.Username + " already exists");
+        }
+        Users.create({
+          Username: req.body.Username,
+          Password: hashedPassword,
+          Email: req.body.Email,
+          Birthday: req.body.Birthday,
+        })
+          .then((user) => {
+            res.status(201).json(user);
+          })
+          .catch((error) => {
+            console.error(error);
+            res.status(500).send("Error: " + error);
+          });
       })
       .catch((error) => {
         console.error(error);
@@ -216,27 +250,55 @@ app.post("/users", async (req, res) => {
 
 //PUT // UPDATE requests
 //Update a user's info, by username
-app.put("/users/:Username", (req, res) => {
-  Users.findOneAndUpdate(
-    { Username: req.params.Username },
-    {
-      $set: {
-        Username: req.body.Username,
-        Password: req.body.Password,
-        Email: req.body.Email,
-        Birthday: req.body.Birthday,
+app.put(
+  "/users/:Username",
+  passport.authenticate(
+    "jwt",
+    [
+      check(
+        "Username",
+        "Username must be at least 5 characters in length"
+      ).isLength({ min: 5 }),
+      check(
+        "Username",
+        "Username contains non alphanumeric characters - not allowed."
+      ).isAlphanumeric(),
+      check("Password", "Password is empty").not().isEmpty(),
+      check("Email", "Email does not appear to be valid").isEmail(),
+    ],
+    { session: false }
+  ),
+  (req, res) => {
+    // check the validation object for errors
+    let errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(422).json({ errors: errors.array() });
+    }
+
+    Users.findOneAndUpdate(
+      { Username: req.params.Username },
+      {
+        $set: {
+          Username: req.body.Username,
+          Password: req.body.Password,
+          Email: req.body.Email,
+          Birthday: req.body.Birthday,
+        },
       },
-    },
-    { new: true } // This line makes sure that the updated document is returned
-  )
-    .then((updatedUser) => {
-      res.json(updatedUser);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send("Error: " + err);
-    });
-});
+      { new: true }
+    )
+      .then((user) => {
+        if (!user) {
+          return res.status(404).send("Error: No user was found");
+        }
+        res.json(user);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      });
+  }
+);
 
 // POST // CREATE
 //add a movie to a user's list of favorites
