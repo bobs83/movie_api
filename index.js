@@ -6,8 +6,8 @@ const path = require("path"); //Node.js module that provides utilities for worki
 const uuid = require("uuid"); // Module for the creation of RFC4122 UUIDs.
 const mongoose = require("mongoose"); // MongoDB object modeling tool designed to work in an asynchronous environment.
 const Models = require("./models.js"); //Importing Mongoose models (presumably, you have defined your Mongoose schemas in a "models.js" file).
-const bcrypt = require("bcrypt"); //Library for hashing passwords.
-const saltRounds = 10;
+//const bcrypt = require("bcrypt"); //Library for hashing passwords.
+//const saltRounds = 10;
 
 // Defining Models // Import Models
 const Movies = Models.Movie;
@@ -18,17 +18,44 @@ const app = express();
 const { check, validationResult } = require("express-validator"); //Module for validating data.
 
 // Connect to MongoDB database
-mongoose.connect(process.env.CONNECTION_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-// mongoose.connect("mongodb://localhost:27017/myflix2DB", {
+// mongoose.connect(process.env.CONNECTION_URI, {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true,
 // });
 
+mongoose.connect("mongodb://localhost:27017/myflix2DB", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const cors = require("cors"); //Middleware for providing a Connect/Express middleware that can be used to enable CORS with various options.
+app.use(cors()); //Allowing all domains to make requests to your API.
+
+//Using CORS to allow all domains to make requests to your API.
+// let allowedOrigins = [
+// 	"http://localhost:8080",
+// 	"https://movies-api-render-0a0q.onrender.com/",
+// 	"https://ghibli-archive.netlify.app/",
+// ];
+// app.use(
+// 	cors({
+// 		origin: (origin, callback) => {
+// 			if (!origin) {
+// 				return callback(null, true);
+// 			}
+// 			if (allowedOrigins.indexOf(origin) === -1) {
+// 				let message =
+// 					"the CORS policy for this application doesnt allow access from origin " +
+// 					origin;
+// 				return callback(new Error(message), false);
+// 			}
+// 			return callback(null, true);
+// 		},
+// 	})
+// );
+
 // Authentication Module
+// let auth = require("./auth")(app);
 let auth;
 try {
   auth = require("./auth.js")(app);
@@ -52,7 +79,7 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
 app.use(morgan("combined", { stream: accessLogStream })); // enable morgan logging to 'log.txt'
 
 app.use(express.static("public")); //Serves static assets from the "public" directory.
-app.use(express.urlencoded({ extended: true })); //Parses incoming requests with URL-encoded payloads.
+//app.use(express.urlencoded({ extended: true })); //Parses incoming requests with URL-encoded payloads.
 
 // CORS
 /////////////////////////  AUTHENTICATION /////////////////////////
@@ -274,31 +301,44 @@ app.post(
 //PUT // UPDATE requests
 //Update a user's info, by username
 app.put(
-  "/users/:name",
+  "/users/:username",
   passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    if (req.user.name !== req.params.name) {
+  // [
+  //   check('username', 'Username is required').isLength({min: 5}),
+  //   check('username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+  //   check('password', 'Password is required').not().isEmpty(),
+  //   check('email', 'Email does not appear to be valid').isEmail()
+  // ],
+  async (req, res) => {
+    // CONDITION TO CHECK ADDED HERE
+    if (req.user.username !== req.params.username) {
       return res.status(400).send("Permission denied");
     }
-    let hashPassword = users.hashPassword(req.body.password);
-    Users.findOneAndUpdate(
-      { name: req.params.name },
-      {
-        $set: {
-          name: req.body.name,
-          password: hashPassword,
-          email: req.body.email,
-          birthday: req.body.birthday,
-        },
-      },
-      { new: true }
-    )
-      .then((updatedUser) => {
-        res.json(updatedUser);
+    let hashedPassword = Users.hashPassword(req.body.Password);
+    await Users.findOne({ Username: req.body.Username }) // Search to see if a user with the requested username already exists
+      .then((user) => {
+        if (user) {
+          //If the user is found, send a response that it already exists
+          return res.status(400).send(req.body.Username + " already exists");
+        } else {
+          Users.create({
+            Username: req.body.Username,
+            Password: hashedPassword,
+            Email: req.body.Email,
+            Birthday: req.body.Birthday,
+          })
+            .then((user) => {
+              res.status(201).json(user);
+            })
+            .catch((error) => {
+              console.error(error);
+              res.status(500).send("Error: " + error);
+            });
+        }
       })
-      .catch((err) => {
-        console.error(err);
-        res.status(500).send("Error " + err);
+      .catch((error) => {
+        console.error(error);
+        res.status(500).send("Error: " + error);
       });
   }
 );
