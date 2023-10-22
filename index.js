@@ -15,12 +15,18 @@ const Users = Models.User;
 
 // Initialize express app
 const app = express();
+const { check, validationResult } = require("express-validator"); //Module for validating data.
 
 // Connect to MongoDB database
-mongoose.connect("mongodb://localhost:27017/myflix2DB", {
+mongoose.connect(process.env.CONNECTION_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+// mongoose.connect("mongodb://localhost:27017/myflix2DB", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
 // Authentication Module
 let auth;
@@ -47,12 +53,9 @@ app.use(morgan("combined", { stream: accessLogStream })); // enable morgan loggi
 
 app.use(express.static("public")); //Serves static assets from the "public" directory.
 app.use(express.urlencoded({ extended: true })); //Parses incoming requests with URL-encoded payloads.
-/////////////////////////  AUTHENTICATION /////////////////////////
 
-//GET // READ requests
-app.get("/", (req, res) => {
-  res.send("Welcome to myFlix!");
-});
+// CORS
+/////////////////////////  AUTHENTICATION /////////////////////////
 
 //GET // READ requests
 app.get("/", (req, res) => {
@@ -179,62 +182,123 @@ app.get(
 );
 
 //POST // CREATE requests
+
+///trying example from tutor to see if it works
+// app.post("/register", (req, res) => {
+//   const { username, password, Email, Birthday } = req.body;
+
+//   // Search to see if a user with the requested username already exists
+//   Users.findOne({ Username: username })
+//     .then((existingUser) => {
+//       if (existingUser) {
+//         // If the user is found, send a response that it already exists
+//         return res.status(400).json({ error: "Username already exists." });
+//       } else {
+//         // Hash the password and create the user
+//         bcrypt.hash(password, saltRounds, (err, hashedPassword) => {
+//           if (err) {
+//             return res.status(500).json({ error: "Failed to hash password." });
+//           }
+//           Users.create({
+//             Username: username,
+//             Password: hashedPassword,
+//             Email: Email,
+//             Birthday: Birthday,
+//           })
+//             .then((newUser) => {
+//               const userObject = newUser.toObject();
+//               delete userObject.Password;
+//               res.status(201).json({
+//                 message: "User registered successfully!",
+//                 user: userObject,
+//               });
+//             })
+//             .catch((error) => {
+//               console.error("Error creating user:", error);
+//               res.status(500).json({ error: "Failed to create user." });
+//             });
+//         });
+//       }
+//     })
+//     .catch((error) => {
+//       console.error("Error checking existing user:", error);
+//       res.status(500).json({ error: "Failed to check existing user." });
+//     });
+// });
+
 //Add a user
-app.post("/users", (req, res) => {
-  Users.findOne({ Username: req.body.Username })
-    .then((user) => {
-      if (user) {
-        return res.status(400).send(req.body.Username + " already exists");
-      }
-      Users.create({
-        Username: req.body.Username,
-        Password: req.body.Password,
-        Email: req.body.Email,
-        Birthday: req.body.Birthday,
+app.post(
+  "/users",
+  // temp: commented out for debugging
+  // [
+  //   check('name', 'Username is required').isLength({min: 5}),
+  //   check('name', 'Username contains non alphanumric characters - not allowed.').isAlphanumeric(),
+  //   check('password', 'Password is required').not().isEmpty(),
+  //   check('email', 'Email does not appear to be vaild').isEmail()
+  // ],
+  async (req, res) => {
+    let errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(422).json({ errors: errors.array() });
+    }
+    let hashPassword = users.hashPassword(req.body.password);
+    await users
+      .findOne({ name: req.body.name })
+      .then((user) => {
+        if (user) {
+          return res.status(400).send(req.body.name + " already exists");
+        } else {
+          users
+            .create({
+              name: req.body.name,
+              password: hashPassword,
+              email: req.body.email,
+              birthday: req.body.birthday,
+            })
+            .then((user) => {
+              res.status(201).json(user);
+            })
+            .catch((err) => {
+              console.error(err);
+              res.status(500).send("Error " + err);
+            });
+        }
       })
-        .then((user) => {
-          res.status(201).json(user);
-        })
-        .catch((error) => {
-          console.error(error);
-          res.status(500).send("Error: " + error);
-        });
-    })
-    .catch((error) => {
-      console.error(error);
-      res.status(500).send("Error: " + error);
-    });
-});
+      .catch((error) => {
+        console.error(error);
+        res.status(500).send("Error " + error);
+      });
+  }
+);
 
 //PUT // UPDATE requests
 //Update a user's info, by username
 app.put(
-  "/users/:Username",
+  "/users/:name",
   passport.authenticate("jwt", { session: false }),
-  async (req, res) => {
-    // CONDITION TO CHECK ADDED HERE
-    if (req.user.Username !== req.params.Username) {
+  (req, res) => {
+    if (req.user.name !== req.params.name) {
       return res.status(400).send("Permission denied");
     }
-    // CONDITION ENDS
-    await Users.findOneAndUpdate(
-      { Username: req.params.Username },
+    let hashPassword = users.hashPassword(req.body.password);
+    Users.findOneAndUpdate(
+      { name: req.params.name },
       {
         $set: {
-          Username: req.body.Username,
-          Password: req.body.Password,
-          Email: req.body.Email,
-          Birthday: req.body.Birthday,
+          name: req.body.name,
+          password: hashPassword,
+          email: req.body.email,
+          birthday: req.body.birthday,
         },
       },
       { new: true }
-    ) // This line makes sure that the updated document is returned
+    )
       .then((updatedUser) => {
         res.json(updatedUser);
       })
       .catch((err) => {
-        console.log(err);
-        res.status(500).send("Error: " + err);
+        console.error(err);
+        res.status(500).send("Error " + err);
       });
   }
 );
@@ -311,12 +375,15 @@ app.delete(
       });
   }
 );
+
+// Error handling
 app.use((err, req, res, next) => {
-  console.log(err);
-  console.error(err.stack);
+  console.error(err);
+  res.status(500).json({ error: "Computer says NO!." });
 });
 
 //listen for requests
-app.listen(8080, () => {
-  console.log("Your app is listening on port 8080.");
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running and listening on port ${PORT}.`);
 });

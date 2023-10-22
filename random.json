@@ -1181,7 +1181,7 @@ db.movies.insertMany([
   }
 ])
 
-mongoimport --uri "mongodb+srv://b830103:b830103@Cluster0.j3on6jd.mongodb.net/Cluster0" \
+mongoimport --uri "mongodb+srv://b830103:password@cluster0.j3on6jd.mongodb.net/Cluster0" \
            --collection movies \
            --type json \
            --file myflixdb2_users.json
