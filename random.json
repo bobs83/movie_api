@@ -832,7 +832,7 @@ mongoexport -d myflix2DB -c users -o myflixdb2_users.json
 
 mongodump --db cfDB
 
-db.movies2.insertOne({
+db.movies.insertOne({
   "Title": "Silence of the Lambs",
   "Description": "A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer.",
   "Genre": {
@@ -866,7 +866,7 @@ db.genre.updateMany(
 
 
 
-db.movies.insertMany(
+db.movies2.insertMany(
 [
   {
     "_id": ObjectId("65321ff58dc82592bc9f1012"),
@@ -1002,7 +1002,7 @@ db.movies.insertMany(
 ])
 
 
-[
+db.movies.insertMany([
   {
     "Title": "The French Dispatch",
     "Description": "A love letter to journalists set in an outpost of an American newspaper in a fictional twentieth-century French city that brings to life a collection of stories published in 'The French Dispatch Magazine'.",
@@ -1179,4 +1179,64 @@ db.movies.insertMany(
     "ImageURL": "https://example.com/the-matrix-reloaded.jpg",
     "Featured": false
   }
-]
+])
+
+mongoimport --uri "mongodb+srv://b830103:b830103@Cluster0.j3on6jd.mongodb.net/Cluster0" \
+           --collection movies \
+           --type json \
+           --file myflixdb2_users.json
+
+
+           const express = require("express");
+const bodyParser = require("body-parser");
+const morgan = require("morgan");
+const fs = require("fs");
+const path = require("path");
+const uuid = require("uuid");
+const mongoose = require("mongoose");
+const Models = require("./models.js");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
+
+// Import Models
+const Movies = Models.Movie;
+const Users = Models.User;
+
+// Initialize express app
+const app = express();
+
+// Connect to MongoDB database
+mongoose.connect("mongodb://localhost:27017/myflix2DB", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+let auth;
+try {
+  auth = require("./auth.js")(app);
+} catch (error) {
+  console.error("Error loading auth module:", error.message);
+  // Handle the error or set up a default configuration
+}
+
+// Passport Configuration
+const passport = require("passport"); // Import passport configuration
+require("./passport.js");
+
+// Middleware to parse JSON and urlencoded data
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Log URL request data to log.txt text file
+const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
+  flags: "a",
+});
+app.use(morgan("combined", { stream: accessLogStream })); // enable morgan logging to 'log.txt'
+app.use(express.static("public"));
+
+/////////////////////////  AUTHENTICATION /////////////////////////
+
+//GET // READ requests
+app.get("/", (req, res) => {
+  res.send("Welcome to myFlix!");
+});

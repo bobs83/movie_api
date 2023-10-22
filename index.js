@@ -1,36 +1,57 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const morgan = require("morgan");
-const fs = require("fs");
-const path = require("path");
-const uuid = require("uuid");
+const express = require("express"); //Framework for building web applications and APIs.
+const bodyParser = require("body-parser"); //Middleware to parse JSON and urlencoded data
+const morgan = require("morgan"); // for logging HTTP requests to a file named "log.txt".
+const fs = require("fs"); //Node.js file system module for working with files.
+const path = require("path"); //Node.js module that provides utilities for working with file and directory paths.
+const uuid = require("uuid"); // Module for the creation of RFC4122 UUIDs.
+const mongoose = require("mongoose"); // MongoDB object modeling tool designed to work in an asynchronous environment.
+const Models = require("./models.js"); //Importing Mongoose models (presumably, you have defined your Mongoose schemas in a "models.js" file).
+const bcrypt = require("bcrypt"); //Library for hashing passwords.
+const saltRounds = 10;
 
-const mongoose = require("mongoose");
-const Models = require("./models.js");
+// Defining Models // Import Models
 const Movies = Models.Movie;
 const Users = Models.User;
 
+// Initialize express app
+const app = express();
+
+// Connect to MongoDB database
 mongoose.connect("mongodb://localhost:27017/myflix2DB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-const app = express();
+// Authentication Module
+let auth;
+try {
+  auth = require("./auth.js")(app);
+} catch (error) {
+  console.error("Error loading auth module:", error.message);
+  // Handle the error or set up a default configuration
+}
+
+// Passport Configuration
+const passport = require("passport"); // Middleware for handling user authentication
+require("./passport.js");
+
+// Middleware to parse JSON and urlencoded data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-let auth = require("./auth")(app);
-const passport = require("passport");
-require("./passport");
 
 // Log URL request data to log.txt text file
 const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
   flags: "a",
 });
-app.use(morgan("combined", { stream: accessLogStream }));
-app.use(express.static("public"));
+app.use(morgan("combined", { stream: accessLogStream })); // enable morgan logging to 'log.txt'
+
+app.use(express.static("public")); //Serves static assets from the "public" directory.
+app.use(express.urlencoded({ extended: true })); //Parses incoming requests with URL-encoded payloads.
+/////////////////////////  AUTHENTICATION /////////////////////////
+
+//GET // READ requests
 app.get("/", (req, res) => {
-  res.send("This is the default route endpoint");
+  res.send("Welcome to myFlix!");
 });
 
 //GET // READ requests
@@ -66,7 +87,7 @@ app.get(
             .status(404)
             .send("Error: " + req.params.Title + " was not found");
         }
-        res.status(200).json(movie);
+        res.status(201).json(movie);
       })
       .catch((err) => {
         console.error(err);
@@ -90,7 +111,7 @@ app.get(
             `Error: no movies found with the ${req.params.Genre} genre type.`
           );
       } else {
-        res.status(200).json(movies);
+        res.status(201).json(movies);
       }
     } catch (err) {
       console.error(err);
@@ -115,7 +136,7 @@ app.get(
                 " name"
             );
         } else {
-          res.status(200).json(movies);
+          res.status(201).json(movies);
         }
       })
       .catch((err) => {
