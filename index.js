@@ -176,7 +176,7 @@ app.get(
   }
 );
 
-//Get a list of all use rs
+//Get a list of all users
 app.get(
   "/users",
   // passport.authenticate("jwt", { session: false }),
@@ -212,7 +212,7 @@ app.get(
 
 //Add a user
 app.post(
-  "/users",
+  "/Users",
   // temp: commented out for debugging
   // [
   //   check('name', 'Username is required').isLength({min: 5}),
@@ -233,10 +233,10 @@ app.post(
           return res.status(400).send(req.body.Username + " already exists");
         }
         Users.create({
-          Username: req.body.Username,
+          Username: req.body.name,
           Password: hashedPassword,
-          Email: req.body.Email,
-          Birthday: req.body.Birthday,
+          Email: req.body.email,
+          Birthday: req.body.birthday,
         })
           .then((user) => {
             res.status(201).json(user);
@@ -256,7 +256,7 @@ app.post(
 //PUT // UPDATE requests
 //Update a user's info, by username
 app.put(
-  "/users/:username",
+  "/users/:Username",
   //passport.authenticate("jwt", { session: false }),
   // [
   //   check('username', 'Username is required').isLength({min: 5}),
