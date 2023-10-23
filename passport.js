@@ -1,6 +1,6 @@
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
-const Models = require("./models.js"),
+const passport = require("passport"),
+  LocalStrategy = require("passport-local").Strategy,
+  Models = require("./models.js"),
   passportJWT = require("passport-jwt");
 
 let Users = Models.User,
@@ -20,16 +20,16 @@ passport.use(
           if (!user) {
             console.log("incorrect username");
             return callback(null, false, {
-              message: "Incorrect username or password",
+              message: "Incorrect username or password.",
             });
           }
           console.log("finished");
           return callback(null, user);
         })
-        .catch((err) => {
-          if (err) {
-            console.log(err);
-            return callback(err);
+        .catch((error) => {
+          if (error) {
+            console.log(error);
+            return callback(error);
           }
         });
     }
@@ -47,8 +47,8 @@ passport.use(
         .then((user) => {
           return callback(null, user);
         })
-        .catch((err) => {
-          return callback(err);
+        .catch((error) => {
+          return callback(error);
         });
     }
   )

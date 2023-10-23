@@ -19,7 +19,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
-let auth = require("./auth")(app);
+
 const passport = require("passport");
 require("./passport.js");
 
@@ -29,19 +29,7 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
 
 app.use(morgan("combined", { stream: accessLogStream }));
 app.use(express.static("public"));
-
-let users = [
-  {
-    id: 1,
-    name: "Lotte",
-    favoriteMovies: [],
-  },
-  {
-    id: 2,
-    name: "Sven",
-    favoriteMovies: ["The French Dispatch"],
-  },
-];
+let auth = require("./auth")(app);
 
 //GET // READ requests
 
@@ -170,35 +158,31 @@ app.get(
 
 //POST // CREATE requests
 //Add a user
-app.post(
-  "/users",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    Users.findOne({ Username: req.body.Username })
-      .then((user) => {
-        if (user) {
-          return res.status(400).send(req.body.Username + " already exists");
-        }
-        Users.create({
-          Username: req.body.Username,
-          Password: req.body.Password,
-          Email: req.body.Email,
-          Birthday: req.body.Birthday,
-        })
-          .then((user) => {
-            res.status(201).json(user);
-          })
-          .catch((error) => {
-            console.error(error);
-            res.status(500).send("Error: " + error);
-          });
+app.post("/users", (req, res) => {
+  Users.findOne({ Username: req.body.Username })
+    .then((user) => {
+      if (user) {
+        return res.status(400).send(req.body.Username + " already exists");
+      }
+      Users.create({
+        Username: req.body.Username,
+        Password: req.body.Password,
+        Email: req.body.Email,
+        Birthday: req.body.Birthday,
       })
-      .catch((error) => {
-        console.error(error);
-        res.status(500).send("Error: " + error);
-      });
-  }
-);
+        .then((user) => {
+          res.status(201).json(user);
+        })
+        .catch((error) => {
+          console.error(error);
+          res.status(500).send("Error: " + error);
+        });
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Error: " + error);
+    });
+});
 
 //PUT // UPDATE requests
 //Update a user's info, by username
