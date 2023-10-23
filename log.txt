@@ -932,3 +932,5 @@
 ::1 - - [23/Oct/2023:17:52:14 +0000] "PUT /Users/Buster HTTP/1.1" 400 17 "-" "PostmanRuntime/7.33.0"
 ::1 - - [23/Oct/2023:17:52:14 +0000] "PUT /Users/Buster HTTP/1.1" 400 17 "-" "PostmanRuntime/7.33.0"
 ::1 - - [23/Oct/2023:17:52:24 +0000] "PUT /Users/Buster HTTP/1.1" 400 17 "-" "PostmanRuntime/7.33.0"
+::1 - - [23/Oct/2023:19:21:34 +0000] "POST /users HTTP/1.1" 400 23 "-" "PostmanRuntime/7.33.0"
+::1 - - [23/Oct/2023:19:21:44 +0000] "POST /users HTTP/1.1" 201 182 "-" "PostmanRuntime/7.33.0"
