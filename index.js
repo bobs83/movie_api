@@ -256,7 +256,7 @@ app.post(
 //PUT // UPDATE requests
 //Update a user's info, by username
 app.put(
-  "/users/:username",
+  "/Users/:Username",
   //passport.authenticate("jwt", { session: false }),
   // [
   //   check('username', 'Username is required').isLength({min: 5}),
