@@ -14,5 +14,7 @@
 ehthumbs.db
 Thumbs.db
 
+
 # Folders or files #
 node_modules/
+random.json

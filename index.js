@@ -1,13 +1,13 @@
+require("dotenv").config();
+
 const express = require("express"); //Framework for building web applications and APIs.
 const bodyParser = require("body-parser"); //Middleware to parse JSON and urlencoded data
 const morgan = require("morgan"); // for logging HTTP requests to a file named "log.txt".
 const fs = require("fs"); //Node.js file system module for working with files.
-const path = require("path"); //Node.js module that provides utilities for working with file and directory paths.
+const path = require("path"); //Node.js module that provides utilities for working with file and directory paths.ncu --upgrade.
 const uuid = require("uuid"); // Module for the creation of RFC4122 UUIDs.
 const mongoose = require("mongoose"); // MongoDB object modeling tool designed to work in an asynchronous environment.
-const Models = require("./models.js"); //Importing Mongoose models (presumably, you have defined your Mongoose schemas in a "models.js" file).
-//const bcrypt = require("bcrypt"); //Library for hashing passwords.
-//const saltRounds = 10;
+const Models = require("./models.js"); //Importing Mongoose models (I have defined in the Mongoose schemas in a "models.js" file).
 
 // Defining Models // Import Models
 const Movies = Models.Movie;
@@ -17,16 +17,16 @@ const Users = Models.User;
 const app = express();
 const { check, validationResult } = require("express-validator"); //Module for validating data.
 
-// Connect to MongoDB database
-// mongoose.connect(process.env.CONNECTION_URI, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
-
-mongoose.connect("mongodb://localhost:27017/myflix2DB", {
+//Connect to MongoDB database
+mongoose.connect(process.env.CONNECTION_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+// mongoose.connect("mongodb://localhost:27017/myflix2DB", {
+// useNewUrlParser: true,
+// useUnifiedTopology: true,
+// });
 
 const cors = require("cors"); //Middleware for providing a Connect/Express middleware that can be used to enable CORS with various options.
 app.use(cors()); //Allowing all domains to make requests to your API.
@@ -213,38 +213,49 @@ app.get(
 //Add a user
 app.post(
   "/users",
-  // temp: commented out for debugging
-  // [
-  //   check('name', 'Username is required').isLength({min: 5}),
-  //   check('name', 'Username contains non alphanumric characters - not allowed.').isAlphanumeric(),
-  //   check('password', 'Password is required').not().isEmpty(),
-  //   check('email', 'Email does not appear to be vaild').isEmail()
-  // ],
+  // Validation logic here for request
+  //you can either use a chain of methods like .not().isEmpty()
+  //which means "opposite of isEmpty" in plain english "is not empty"
+  //or use .isLength({min: 5}) which means
+  //minimum value of 5 characters are only allowed
+  [
+    check("Username", "Username is required").isLength({ min: 5 }),
+    check(
+      "Username",
+      "Username contains non alphanumeric characters - not allowed."
+    ).isAlphanumeric(),
+    check("Password", "Password is required").not().isEmpty(),
+    check("Email", "Email does not appear to be valid").isEmail(),
+  ],
   async (req, res) => {
+    // check the validation object for errors
     let errors = validationResult(req);
 
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.array() });
     }
+
     let hashedPassword = Users.hashPassword(req.body.Password);
-    Users.findOne({ Username: req.body.Username })
+    await Users.findOne({ Username: req.body.Username }) // Search to see if a user with the requested username already exists
       .then((user) => {
         if (user) {
+          //If the user is found, send a response that it already exists
           return res.status(400).send(req.body.Username + " already exists");
-        }
-        Users.create({
-          Username: req.body.Username,
-          Password: hashedPassword,
-          Email: req.body.Email,
-          Birthday: req.body.Birthday,
-        })
-          .then((user) => {
-            res.status(201).json(user);
+        } else {
+          Users.create({
+            Username: req.body.Username,
+            Password: hashedPassword,
+            Email: req.body.Email,
+            Birthday: req.body.Birthday,
           })
-          .catch((error) => {
-            console.error(error);
-            res.status(500).send("Error: " + error);
-          });
+            .then((user) => {
+              res.status(201).json(user);
+            })
+            .catch((error) => {
+              console.error(error);
+              res.status(500).send("Error: " + error);
+            });
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -314,8 +325,7 @@ app.post(
       });
   }
 );
-//DELETE
-//remove movies from users array
+// DELETE requests
 // Remove a movie to a user's list of favorites
 app.delete(
   "/users/:Username/movies/:MovieID",
