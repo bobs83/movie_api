@@ -31,7 +31,7 @@ mongoose.connect(process.env.CONNECTION_URI, {
 const cors = require("cors"); //Middleware for providing a Connect/Express middleware that can be used to enable CORS with various options.
 app.use(cors()); //Allowing all domains to make requests to your API.
 
-//Using CORS to allow all domains to make requests to your API.
+// Using CORS to allow all domains to make requests to your API.
 // let allowedOrigins = [
 // 	"http://localhost:8080",
 // 	"https://movies-api-render-0a0q.onrender.com/",
