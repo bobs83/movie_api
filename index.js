@@ -18,14 +18,6 @@ const app = express();
 const { check, validationResult } = require("express-validator"); //Module for validating data.
 
 //Connect to MongoDB database
-mongoose.connect(
-  "mongodb+srv://myflix:myflix@test.iibqe7v.mongodb.net/?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
-
 mongoose.connect(process.env.CONNECTION_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -89,8 +81,7 @@ app.use(morgan("combined", { stream: accessLogStream })); // enable morgan loggi
 app.use(express.static("public")); //Serves static assets from the "public" directory.
 //app.use(express.urlencoded({ extended: true })); //Parses incoming requests with URL-encoded payloads.
 
-// CORS
-/////////////////////////  AUTHENTICATION /////////////////////////
+/////////////////////////CORS / AUTHENTICATION /////////////////////////
 
 //GET // READ requests
 app.get("/", (req, res) => {

@@ -59,15 +59,15 @@ The goal of this project is to develop a robust and efficient RESTful API using 
 - **User Profile Management:** Register, update your profile, and manage your favorite movies with ease.
 - **Account Deletion:** Opt to delete your account whenever you wish.
 
-### Optional Features
+### Optional Features (to be added :)
 
 - **Actor Insights:** Discover the actors behind the movies.
 - **Extended Movie Details:** Get to know more about the movies with additional information.
 - **To Watch List:** Curate a list of movies you intend to watch.
 
-## API Endpoints
+## API Endpoint overview
 
-Detailed documentation for all API endpoints can be found in the API Documentation.
+Detailed documentation for all API endpoints can be found in the [API Documentation](./public/documentation.html).
 
 ### Movies
 
