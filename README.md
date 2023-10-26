@@ -34,7 +34,9 @@ The goal of this project is to develop a robust and efficient RESTful API using 
 - **[Express](https://expressjs.com/):** A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 - **[Mongoose](https://mongoosejs.com/):** An elegant MongoDB object modeling tool designed to work in an asynchronous environment.
 - **[Bcrypt](https://www.npmjs.com/package/bcrypt):** A library for hashing passwords.
+- **[Passport-JWT](http://www.passportjs.org/)** (v0.6.0): Simple, unobtrusive authentication for Node.js with a JSON Web Token.
 - **[JSON Web Token (JWT)](https://jwt.io/):** A compact, URL-safe means of representing claims to be transferred between two parties.
+- **[UUID](https://www.npmjs.com/package/uuid)** (v9.0.1): For the creation of RFC4122 UUIDs.
 
 ## Middleware
 
@@ -49,6 +51,8 @@ The goal of this project is to develop a robust and efficient RESTful API using 
 
 - **[Postman](https://www.postman.com/):** An API platform for building and using APIs. Postman simplifies each step of the API lifecycle and streamlines collaboration so you can create better APIs—faster.
 - **[Heroku](https://www.heroku.com/):** A platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+- **[CORS](https://www.npmjs.com/package/cors)** (v2.8.5): A package for providing a Connect/Express middleware that can be used to enable CORS (Cross-Origin Resource Sharing).
+- **[Dotenv](https://www.npmjs.com/package/dotenv)** (v16.3.1): A zero-dependency module that loads environment variables from a .env file.
 
 ## Features
 

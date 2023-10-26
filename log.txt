@@ -1028,3 +1028,4 @@
 ::1 - - [25/Oct/2023:12:40:35 +0000] "GET /movies/genre/Comedy HTTP/1.1" 201 1039 "-" "PostmanRuntime/7.33.0"
 ::1 - - [25/Oct/2023:12:40:46 +0000] "GET /movies/directors/Jonathan%20Demme HTTP/1.1" 201 653 "-" "PostmanRuntime/7.33.0"
 ::1 - - [25/Oct/2023:12:59:39 +0000] "GET /movies/directors/Jonathan%20Demme HTTP/1.1" 201 653 "-" "PostmanRuntime/7.33.0"
+::1 - - [26/Oct/2023:09:22:25 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36"
