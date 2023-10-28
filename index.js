@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config(); //To load environment variables from a .env file into process.env.
 
 const express = require("express"); //Framework for building web applications and APIs.
 const bodyParser = require("body-parser"); //Middleware to parse JSON and urlencoded data
@@ -22,11 +22,6 @@ mongoose.connect(process.env.CONNECTION_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
-// mongoose.connect("mongodb://localhost:27017/myflix2DB", {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
 
 const cors = require("cors"); //Middleware for providing a Connect/Express middleware that can be used to enable CORS with various options.
 app.use(cors()); //Allowing all domains to make requests to your API.
@@ -55,14 +50,7 @@ app.use(cors()); //Allowing all domains to make requests to your API.
 // );
 
 // Authentication Module
-// let auth = require("./auth")(app);
-let auth;
-try {
-  auth = require("./auth.js")(app);
-} catch (error) {
-  console.error("Error loading auth module:", error.message);
-  // Handle the error or set up a default configuration
-}
+let auth = require("./auth")(app);
 
 // Passport Configuration
 const passport = require("passport"); // Middleware for handling user authentication
@@ -81,11 +69,12 @@ app.use(morgan("combined", { stream: accessLogStream })); // enable morgan loggi
 app.use(express.static("public")); //Serves static assets from the "public" directory.
 //app.use(express.urlencoded({ extended: true })); //Parses incoming requests with URL-encoded payloads.
 
-/////////////////////////CORS / AUTHENTICATION /////////////////////////
+/////////////////////////CORS /////////////////////////
 
 //GET // READ requests
 app.get("/", (req, res) => {
-  res.send("Welcome to myFlix!");
+  // res.send("Welcome to myFlix!");
+  res.json({ message: "Welcome to myFlix!" });
 });
 
 //return a list of ALL movies to the user
@@ -97,9 +86,12 @@ app.get(
       .then((movies) => {
         res.status(200).json(movies);
       })
-      .catch((error) => {
-        console.error(error);
-        res.status(400).send("Error: " + error);
+      .catch((err) => {
+        console.error(err);
+        res.status(500).json({
+          error: "Internal Server Error",
+          message: "Problem occurred when retrieving movie titles.",
+        });
       });
   }
 );
@@ -114,17 +106,19 @@ app.get(
         if (!movie) {
           return res
             .status(404)
-            .send("Error: " + req.params.Title + " was not found");
+            .json({ error: req.params.Title + " was not found" });
         }
         res.status(200).json(movie);
       })
       .catch((err) => {
         console.error(err);
-        res.status(500).send("Error: " + err);
+        res.status(500).json({
+          error: "Internal Server Error",
+          message: "Failed to retrive movie title",
+        });
       });
   }
 );
-
 // Get data about genre
 app.get(
   "/movies/genre/:Genre",
@@ -134,17 +128,18 @@ app.get(
       const movies = await Movies.find({ "Genre.Name": req.params.Genre });
 
       if (movies.length === 0) {
-        return res
-          .status(404)
-          .send(
-            `Error: no movies found with the ${req.params.Genre} genre type.`
-          );
+        return res.status(404).json({
+          error: `No movies found with the ${req.params.Genre} genre type.`,
+        });
       } else {
         res.status(200).json(movies);
       }
     } catch (err) {
       console.error(err);
-      res.status(500).send(`Error: ${err}`);
+      res.status(500).json({
+        error: "Internal Server Error",
+        message: "Failed to retrieve movies by genre",
+      });
     }
   }
 );
@@ -157,25 +152,28 @@ app.get(
     Movies.find({ "Director.Name": req.params.Director })
       .then((movies) => {
         if (movies.length == 0) {
-          return res
-            .status(404)
-            .send(
-              "Error: no movies found with the director " +
-                req.params.Director +
-                " name"
-            );
+          return res.status(404).json({
+            error:
+              "No movies found with the director " +
+              req.params.Director +
+              " name",
+          });
         } else {
           res.status(200).json(movies);
         }
       })
       .catch((err) => {
         console.error(err);
-        res.status(500).send("Error: " + err);
+        res.status(500).json({
+          error: "Internal Server Error",
+          message:
+            "Failed to retrieve movies directed by the specified director",
+        });
       });
   }
 );
 
-//Get a list of all use rs
+//Get a list of all users
 app.get(
   "/users",
   passport.authenticate("jwt", { session: false }),
@@ -186,7 +184,10 @@ app.get(
       })
       .catch((err) => {
         console.error(err);
-        res.status(400).send("Error: " + err);
+        res.status(500).json({
+          error: "Internal Server Error",
+          message: "Failed to retrieve user information",
+        });
       });
   }
 );
@@ -195,14 +196,20 @@ app.get(
 app.get(
   "/users/:Username",
   passport.authenticate("jwt", { session: false }),
-  async (req, res) => {
-    await Users.findOne({ Username: req.params.Username })
+  (req, res) => {
+    Users.findOne({ Username: req.params.Username })
       .then((user) => {
+        if (!user) {
+          return res.status(404).json({ error: "User not found" });
+        }
         res.json(user);
       })
       .catch((err) => {
         console.error(err);
-        res.status(400).send("Error: " + err);
+        res.status(500).json({
+          error: "Internal server error",
+          message: "Failed to retrieve user information",
+        });
       });
   }
 );
@@ -212,53 +219,66 @@ app.get(
 //Add a user
 app.post(
   "/users",
-  // Validation logic here for request
-  //you can either use a chain of methods like .not().isEmpty()
-  //which means "opposite of isEmpty" in plain english "is not empty"
-  //or use .isLength({min: 5}) which means
-  //minimum value of 5 characters are only allowed
   [
-    check("Username", "Username is required").isLength({ min: 5 }),
+    // Validation
     check(
       "Username",
-      "Username contains non alphanumeric characters - not allowed."
+      "Username must be at least 5 characters in length"
+    ).isLength({ min: 4 }),
+    check(
+      "Username",
+      "Username contains non-alphanumeric characters - not allowed."
     ).isAlphanumeric(),
-    check("Password", "Password is required").not().isEmpty(),
+    check("Password", "Password is empty").not().isEmpty(),
     check("Email", "Email does not appear to be valid").isEmail(),
   ],
-  async (req, res) => {
-    // check the validation object for errors
-    let errors = validationResult(req);
+  (req, res) => {
+    // Check the validation object for errors
+    const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
+      // If there are validation errors, return a 422 status code with the error messages in JSON
       return res.status(422).json({ errors: errors.array() });
     }
 
-    let hashedPassword = Users.hashPassword(req.body.Password);
-    await Users.findOne({ Username: req.body.Username }) // Search to see if a user with the requested username already exists
+    const hashedPassword = Users.hashPassword(req.body.Password);
+
+    Users.findOne({ Username: req.body.Username })
       .then((user) => {
         if (user) {
-          //If the user is found, send a response that it already exists
-          return res.status(400).send(req.body.Username + " already exists");
-        } else {
-          Users.create({
-            Username: req.body.Username,
-            Password: hashedPassword,
-            Email: req.body.Email,
-            Birthday: req.body.Birthday,
-          })
-            .then((user) => {
-              res.status(201).json(user);
-            })
-            .catch((error) => {
-              console.error(error);
-              res.status(500).send("Error: " + error);
-            });
+          // If the username already exists, return a 400 status code with a JSON message
+          return res
+            .status(400)
+            .json({ message: `${req.body.Username} already exists` });
         }
+
+        // If the username is unique, create a new user
+        Users.create({
+          Username: req.body.Username,
+          Password: hashedPassword,
+          Email: req.body.Email,
+          Birthday: req.body.Birthday,
+        })
+          .then((user) => {
+            // Return the created user with a 201 status code in JSON format
+            res.status(201).json(user);
+          })
+          .catch((error) => {
+            console.error(error);
+            // If there is an unexpected error during user creation, return a 500 status code with a JSON error message
+            res.status(500).json({
+              error: "Internal Server Error",
+              message: "Error creating user",
+            });
+          });
       })
-      .catch((error) => {
-        console.error(error);
-        res.status(500).send("Error: " + error);
+      // If there is an unexpected error during the user lookup, return a 500 status code with a JSON error message
+      .catch((err) => {
+        console.error(err);
+        res.status(500).json({
+          error: "Internal server error",
+          message: "Failed to retrieve user information",
+        });
       });
   }
 );
@@ -269,38 +289,46 @@ app.put(
   "/users/:Username",
   passport.authenticate("jwt", { session: false }),
   [
-    check("username", "Username is required").isLength({ min: 5 }),
+    check("Username", "Username is required").isLength({ min: 4 }),
     check(
-      "username",
+      "Username",
       "Username contains non alphanumeric characters - not allowed."
     ).isAlphanumeric(),
-    check("password", "Password is required").not().isEmpty(),
-    check("email", "Email does not appear to be valid").isEmail(),
+    check("Password", "Password is required").not().isEmpty(),
   ],
-  async (req, res) => {
-    // CONDITION TO CHECK ADDED HERE
-    if (req.body.Username !== req.params.Username) {
-      return res.status(400).send("Permission denied");
+  (req, res) => {
+    // check the validation object for errors
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(422).json({ errors: errors.array() });
     }
-    // CONDITION ENDS
-    await Users.findOneAndUpdate(
+
+    const hashedPassword = Users.hashPassword(req.body.Password);
+    Users.findOneAndUpdate(
       { Username: req.params.Username },
       {
         $set: {
           Username: req.body.Username,
-          Password: req.body.Password,
+          Password: hashedPassword,
           Email: req.body.Email,
           Birthday: req.body.Birthday,
         },
       },
       { new: true }
-    ) // This line makes sure that the updated document is returned
+    )
       .then((updatedUser) => {
-        res.json(updatedUser);
+        if (!updatedUser) {
+          return res.status(404).json({ error: "User was not found" });
+        }
+        res.json({ user: updatedUser });
       })
       .catch((err) => {
-        console.log(err);
-        res.status(500).send("Error: " + err);
+        console.error(err);
+        res.status(500).json({
+          error: "Internal server error",
+          message: "Failed to update user information",
+        });
       });
   }
 );
@@ -323,7 +351,10 @@ app.post(
       })
       .catch((err) => {
         console.error(err);
-        res.status(500).send(`Error: ${err}`);
+        res.status(500).json({
+          error: "Internal Server Error",
+          message: "Failed to add the specified movie",
+        });
       });
   }
 );
@@ -342,14 +373,17 @@ app.delete(
     )
       .then((updatedUser) => {
         if (!updatedUser) {
-          return res.status(404).send("Error: User not found");
+          return res.status(404).json({ error: "User not found" });
         } else {
           res.json(updatedUser);
         }
       })
       .catch((error) => {
         console.error(error);
-        res.status(500).send("Error: " + error);
+        res.status(500).json({
+          error: "Internal Server Error",
+          message: "Internal Server Error occurred while deleting the user",
+        });
       });
   }
 );
@@ -358,21 +392,24 @@ app.delete(
 // Remove a movie to a user's list of favorites
 app.delete(
   "/users/:Username",
-  // passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Users.findOneAndRemove({ Username: req.params.Username })
       .then((user) => {
         if (!user) {
-          res
+          return res
             .status(404)
-            .send("User " + req.params.Username + " was not found");
+            .json({ error: `User ${req.params.Username} was not found` });
         } else {
-          res.status(200).send(req.params.Username + " was deleted.");
+          res.json({ message: `${req.params.Username} was deleted.` });
         }
       })
       .catch((err) => {
         console.error(err);
-        res.status(500).send("Error: " + err);
+        res.status(500).json({
+          error: "Internal Server Error",
+          message: "Failed to delete the specified user",
+        });
       });
   }
 );
@@ -380,11 +417,13 @@ app.delete(
 // Error handling
 app.use((err, req, res, next) => {
   console.error(err);
-  res.status(500).json({ error: "Computer says NO!" });
+  res.status(500).json({
+    error: "Computer says NO! We have an internal error please check your code",
+  });
 });
 
 //listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-  console.log(`Server is running and listening on port ${PORT}.`);
+  console.log(`Server is up and running and listening on port ${PORT}.`);
 });
