@@ -26,29 +26,6 @@ mongoose.connect(process.env.CONNECTION_URI, {
 const cors = require("cors"); //Middleware for providing a Connect/Express middleware that can be used to enable CORS with various options.
 app.use(cors()); //Allowing all domains to make requests to your API.
 
-// Using CORS to allow all domains to make requests to your API.
-// let allowedOrigins = [
-// 	"http://localhost:8080",
-// 	"https://movies-api-render-0a0q.onrender.com/",
-// 	"https://ghibli-archive.netlify.app/",
-// ];
-// app.use(
-// 	cors({
-// 		origin: (origin, callback) => {
-// 			if (!origin) {
-// 				return callback(null, true);
-// 			}
-// 			if (allowedOrigins.indexOf(origin) === -1) {
-// 				let message =
-// 					"the CORS policy for this application doesnt allow access from origin " +
-// 					origin;
-// 				return callback(new Error(message), false);
-// 			}
-// 			return callback(null, true);
-// 		},
-// 	})
-// );
-
 // Authentication Module
 let auth = require("./auth")(app);
 
@@ -87,7 +64,6 @@ app.get(
         res.status(200).json(movies);
       })
       .catch((err) => {
-        console.error(err);
         res.status(500).json({
           error: "Internal Server Error",
           message: "Problem occurred when retrieving movie titles.",
