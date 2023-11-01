@@ -55,18 +55,22 @@ app.get("/", (req, res) => {
 });
 
 //return a list of ALL movies to the user
-app.get("/movies", async (req, res) => {
-  await Movies.find()
-    .then((movies) => {
-      res.status(200).json(movies);
-    })
-    .catch((err) => {
-      res.status(500).json({
-        error: "Internal Server Error",
-        message: "Problem occurred when retrieving movie titles.",
+app.get(
+  "/movies",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    await Movies.find()
+      .then((movies) => {
+        res.status(200).json(movies);
+      })
+      .catch((err) => {
+        res.status(500).json({
+          error: "Internal Server Error",
+          message: "Problem occurred when retrieving movie titles.",
+        });
       });
-    });
-});
+  }
+);
 
 // Get data about a single movie by title
 app.get(
