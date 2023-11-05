@@ -14,7 +14,6 @@ passport.use(
       passwordField: "Password",
     },
     async (username, password, callback) => {
-      console.log(`${username} ${password}`);
       try {
         const user = await Users.findOne({ Username: username }); // Make sure the field is 'Username' if it's case-sensitive in your schema
 
@@ -32,7 +31,6 @@ passport.use(
           return callback(null, false, { message: "Incorrect password" });
         }
 
-        console.log("Finished");
         return callback(null, user);
       } catch (err) {
         console.error(err);
