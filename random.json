@@ -1112,7 +1112,7 @@ db.movies.insertMany([
       "Birth": 1970,
       "Death": null
     },
-    "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnHxC5rmn9c0DyXM5htwUrAuc5YRfclpFNVggYfpyHuGADDvpX",
+    "ImageURL": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT3VT-Ynisr-nRV7R65rC8iZ4jyJKgLHU7wvROHYTnc1X7zg_4i",
     "Featured": false
   },
   {
