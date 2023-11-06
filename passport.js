@@ -47,33 +47,13 @@ passport.use(
       secretOrKey: "your_jwt_secret",
     },
     async (jwtPayload, callback) => {
-      // Log the jwtPayload for debugging
-      console.log(jwtPayload);
-
-      // Check if the payload contains the id property
-      if (!jwtPayload || !jwtPayload.id) {
-        return callback(new Error("Invalid token: ID is missing."), false);
-      }
-
-      try {
-        const user = await Users.findById(jwtPayload._id); // Using _id instead of id because the id is what we used in the JWTStrategy
-
-        // If no user is found, return the callback with null user
-        if (!user) {
-          return callback(null, false); // 'false' indicates that the authentication failed
-        }
-
-        // If a user is found, prepare the user object for the callback
-        const loggingUser = {
-          id: user._id, // This is the id used in the JWTStrategy
-        };
-
-        // Return the callback with the user object
-        return callback(null, loggingUser);
-      } catch (error) {
-        // In case of an error, return the callback with the error
-        return callback(error);
-      }
+      return await Users.findById(jwtPayload._id)
+        .then((user) => {
+          return callback(null, user);
+        })
+        .catch((error) => {
+          return callback(error);
+        });
     }
   )
 );
