@@ -56,7 +56,7 @@ passport.use(
       }
 
       try {
-        const user = await Users.findById(jwtPayload.id); // Using id instead of _id
+        const user = await Users.findById(jwtPayload._id); // Using _id instead of id because the id is what we used in the JWTStrategy
 
         // If no user is found, return the callback with null user
         if (!user) {

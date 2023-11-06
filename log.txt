@@ -1155,3 +1155,6 @@
 ::1 - - [30/Oct/2023:06:52:18 +0000] "POST /users/ HTTP/1.1" 400 35 "-" "PostmanRuntime/7.34.0"
 ::1 - - [30/Oct/2023:06:52:23 +0000] "POST /users/ HTTP/1.1" 201 182 "-" "PostmanRuntime/7.34.0"
 ::1 - - [05/Nov/2023:21:24:16 +0000] "GET /movies/The%20French%20Dispatch HTTP/1.1" 200 1037 "-" "PostmanRuntime/7.34.0"
+::1 - - [06/Nov/2023:07:07:46 +0000] "GET /movies/The%20French%20Dispatch HTTP/1.1" 500 78 "-" "PostmanRuntime/7.34.0"
+::1 - - [06/Nov/2023:07:08:35 +0000] "GET /movies/The%20French%20Dispatch HTTP/1.1" 200 1037 "-" "PostmanRuntime/7.34.0"
+::1 - - [06/Nov/2023:07:08:51 +0000] "GET /movies/The%20French%20Dispatch HTTP/1.1" 200 1037 "-" "PostmanRuntime/7.34.0"
