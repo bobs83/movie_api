@@ -2,7 +2,9 @@ db.movies2.insertMany([
   {
       "Title": "The French Dispatch",
       "Description": "A love letter to journalists set in an outpost of an American newspaper in a fictional twentieth-century French city that brings to life a collection of stories published in 'The French Dispatch Magazine'.",
-      "Genre": {
+      "Year": 2020,
+			"Rate": 4,
+			"Genre": {
           "Name": "Comedy",
           "Description": "Is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter."
       },
@@ -17,7 +19,9 @@ db.movies2.insertMany([
   {
       "Title": "The Matrix",
       "Description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
-      "Genre": {
+      "Year": 1999,
+			"Rate": 9,
+			"Genre": {
           "Name": "Sci-Fi",
           "Description": "Action film is a film genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, rescues and frantic chases."
       },
@@ -32,7 +36,9 @@ db.movies2.insertMany([
   {
       "Title": "The Tourist",
       "Description": "Revolves around Frank, an American tourist visiting Italy to mend a broken heart. Elise is an extraordinary woman who deliberately crosses his path.",
-      "Genre": {
+      "Year": 2010,
+			"Rate": 6,
+			"Genre": {
           "Name": "Thriller",
           "Description": "A thriller is a type of mystery with a few key differences. As its name suggests, thrillers tend to be action-packed, page-turners with moments full of tension, anxiety, and fear. Without fail, they are plot-driven stories with plenty of plot twists."
       },
@@ -47,7 +53,9 @@ db.movies2.insertMany([
   {
       "Title": "The Others",
       "Description": "In 1945, immediately following the end of the Second World War, a woman who lives with her two photosensitive children on her darkened old family estate in the Channel Islands becomes convinced that the home is haunted.",
-      "Genre": {
+      "Year": 2001,
+			"Rate": 7,
+			"Genre": {
           "Name": "Horror",
           "Description": "Horror is a genre of literature, film, and television that is meant to scare, startle, shock, and even repulse audiences. The key focus of a horror novel, horror film, or horror TV show is to elicit a sense of dread in the reader through frightening images, themes, and situations."
       },
@@ -62,7 +70,9 @@ db.movies2.insertMany([
   {
       "Title": "Amélie",
       "Description": "A whimsical and romantic French film that tells the story of a shy waitress who sets out to improve the lives of those around her in a charming neighborhood of Paris.",
-      "Genre": {
+      "Year": 2001,
+			"Rate": 8,
+			"Genre": {
           "Name": "Romantic Comedy",
           "Description": "A genre that combines elements of romance and humor."
       },
@@ -77,7 +87,9 @@ db.movies2.insertMany([
   {
       "Title": "The Fifth Element",
       "Description": "Korben Dallas, a cab driver, tries to secure four mystical stones and a mysterious fifth element that alone can defeat a cosmic evil force during an apocalyptic war.",
-      "Genre": {
+      "Year": 1997,
+			"Rate": 9,
+			"Genre": {
           "Name": "Sci-Fi",
           "Description": "A genre that explores futuristic and speculative concepts."
       },
@@ -92,7 +104,9 @@ db.movies2.insertMany([
   {
       "Title": "Inception",
       "Description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
-      "Genre": {
+      "Year": 2010,
+			"Rate": 8.5,
+			"Genre": {
           "Name": "Sci-Fi",
           "Description": "A genre that explores futuristic and speculative concepts."
       },
@@ -107,7 +121,9 @@ db.movies2.insertMany([
   {
       "Title": "Fucking Åmål",
       "Description": "A coming-of-age film about the romantic and personal struggles of two teenage girls in a small Swedish town.",
-      "Genre": {
+     	"Year": 1998,
+			"Rate": 6.6,
+			"Genre": {
           "Name": "Drama",
           "Description": "A genre that focuses on realistic storytelling and emotional depth."
       },
@@ -122,7 +138,9 @@ db.movies2.insertMany([
   {
       "Title": "Star Wars: Episode V",
       "Description": "The Rebel Alliance battles the Galactic Empire as they seek to destroy the Death Star and confront the evil Darth Vader.",
-      "Genre": {
+      "Year": 1980,
+			"Rate": 8.7,
+			"Genre": {
           "Name": "Sci-Fi",
           "Description": "A genre that explores futuristic and speculative concepts."
       },
@@ -136,8 +154,10 @@ db.movies2.insertMany([
   },
   {
       "Title": "The Lion King",
-      "Description": "A classic Disney animated film that tells the story of a young lion prince's journey to reclaim his throne after the murder of his father.",
-      "Genre": {
+			"Description": "A classic Disney animated film that tells the story of a young lion prince's journey to reclaim his throne after the murder of his father.",
+      "Year": 1994,
+			"Rate": 8.5,
+			"Genre": {
           "Name": "Animation",
           "Description": "A genre that uses artistic techniques to create animated visuals."
       },
@@ -152,7 +172,9 @@ db.movies2.insertMany([
   {
       "Title": "The Matrix Reloaded",
       "Description": "Neo, Trinity, and Morpheus continue their struggle against the machines as they seek to free humanity from the Matrix. The prophecy of 'The One' unfolds, leading to a high-stakes battle in both the real world and the simulated reality of the Matrix.",
-      "Genre": {
+      "Year": 1994,
+			"Rate": 8.5,
+			"Genre": {
           "Name": "Sci-Fi",
           "Description": "Action film is a genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, rescues, and frantic chases."
       },

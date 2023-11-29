@@ -1161,3 +1161,11 @@
 ::1 - - [06/Nov/2023:07:08:51 +0000] "GET /movies/The%20French%20Dispatch HTTP/1.1" 200 1037 "-" "PostmanRuntime/7.34.0"
 =======
 >>>>>>> parent of 080f5bb (debugged passport)
+::1 - - [20/Nov/2023:18:33:29 +0000] "POST /users/ HTTP/1.1" 201 185 "-" "PostmanRuntime/7.34.0"
+::1 - - [20/Nov/2023:18:33:50 +0000] "POST /users/Tommy3000/movies/652d83e4fd2bee0e91cb39a8 HTTP/1.1" 401 - "-" "PostmanRuntime/7.34.0"
+::1 - - [20/Nov/2023:18:34:42 +0000] "POST /users/Tommy3000/movies/652d83e4fd2bee0e91cb39a8 HTTP/1.1" 200 211 "-" "PostmanRuntime/7.34.0"
+::1 - - [20/Nov/2023:21:58:15 +0000] "GET / HTTP/1.1" 200 32 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36"
+::1 - - [21/Nov/2023:18:02:20 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36"
+::1 - - [21/Nov/2023:20:01:46 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36"
+::1 - - [21/Nov/2023:20:03:37 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36"
+::1 - - [21/Nov/2023:20:20:11 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36"
