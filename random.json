@@ -173,7 +173,7 @@ db.movies2.insertMany([
       "Title": "The Matrix Reloaded",
       "Description": "Neo, Trinity, and Morpheus continue their struggle against the machines as they seek to free humanity from the Matrix. The prophecy of 'The One' unfolds, leading to a high-stakes battle in both the real world and the simulated reality of the Matrix.",
       "Year": 1994,
-			"Rate": 8.5,
+			"Rate": 7.2,
 			"Genre": {
           "Name": "Sci-Fi",
           "Description": "Action film is a genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, rescues, and frantic chases."
